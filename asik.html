@@ -6,10 +6,10 @@
     <title>Asik</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
-     <style>
+    <style>
         @font-face {
             font-family: 'WildBreath';
-            src: url('Fonts/NAMA-FILE.woff2') format('woff2');
+            src: url('the_wild_breath_of_zelda/The Wild Breath of Zelda.otf') format('opentype');
             font-display: swap;
         }
         .font-judul {
@@ -19,9 +19,70 @@
             -webkit-text-stroke: 2px #4C1C0E;
             paint-order: stroke fill;
         }
+        @media (min-width: 768px) {
+            .font-judul {
+                -webkit-text-stroke: 4px #4C1C0E;
+            }
+        }
         .font-teks {
             font-family: 'Times New Roman', Times, serif;
             font-weight: 700;
+        }
+
+        .hero-content {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: min(90vw, 360px);
+            top: 12%;
+            height: auto;
+        }
+
+        .hero-title {
+            font-size: clamp(2.75rem, 13vw, 3.75rem);
+            line-height: 1;
+            letter-spacing: 0.08em;
+            text-align: center;
+        }
+
+        .hero-banner {
+            position: relative;
+            width: 100%;
+            max-width: 300px;
+            aspect-ratio: 1947 / 250;
+            margin-top: 0.4rem;
+        }
+
+        .hero-banner p {
+            font-size: clamp(0.7rem, 3.4vw, 0.95rem);
+        }
+
+        @media (min-width: 768px) {
+            .hero-content {
+                width: 87.5%;
+                max-width: 1260px;
+                top: 16.06%;
+                height: auto;
+            }
+
+            .hero-title {
+                font-size: clamp(4.5rem, 10.4vw, 9.375rem);
+            }
+
+            .hero-banner {
+                width: 42%;
+                max-width: 520px;
+                margin-top: 0.5rem;
+            }
+
+            .hero-banner p {
+                font-size: clamp(1rem, 1.94vw, 1.75rem);
+            }
         }
     </style>
 </head>
@@ -70,11 +131,28 @@
 
     </header>
     <!-- Hero Section -->
-    <!-- Baru bikin yang buat hp -->
-    <section class="relative">
-        <div class="bg-[url('./heroSection/bg-hero.svg')] bg-[length:100%_auto] h-[428px] bg-no-repeat flex flex-col items-center">
-            <h1 class="w-[121px] h-[76px] border-[1px] text-[64px] font-[400]">ASIK</h1>
-            <p>Asistensi Simetri Kuy!</p>
+    <section id="home" class="relative overflow-hidden h-[428px] sm:h-[520px] md:h-auto md:aspect-[1440/1407]">
+        <img
+            src="heroSection/bg-hero.svg"
+            alt="Lanskap fantasi ASIK"
+            class="absolute inset-0 h-full w-full object-cover object-[center_22%] md:object-center"
+        >
+
+        <div class="hero-content">
+            <h1 class="hero-title font-judul drop-shadow-[0_6px_0_rgba(76,28,14,0.35)]">
+                ASIK
+            </h1>
+
+            <div class="hero-banner">
+                <img
+                    src="heroSection/paper-hero.png"
+                    alt=""
+                    class="absolute inset-0 h-full w-full object-fill"
+                >
+                <p class="font-teks absolute inset-0 flex items-center justify-center px-4 sm:px-6 md:px-8 text-center leading-none text-[#4C1C0E]">
+                    Asistensi Simetri Kuy!
+                </p>
+            </div>
         </div>
     </section>
     <!-- About Section -->

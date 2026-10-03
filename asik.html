@@ -6,13 +6,556 @@
     <title>Asik</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @font-face {
+            font-family: 'WildBreath';
+            src: url('the_wild_breath_of_zelda/The Wild Breath of Zelda.otf') format('opentype');
+            font-display: swap;
+        }
+        .font-judul {
+            font-family: 'WildBreath', serif;
+            font-weight: 400;
+            color: #FFF3DB;
+            -webkit-text-stroke: 2px #4C1C0E;
+            paint-order: stroke fill;
+        }
+        @media (min-width: 768px) {
+            .font-judul {
+                -webkit-text-stroke: 4px #4C1C0E;
+            }
+        }
+        .font-teks {
+            font-family: 'Times New Roman', Times, serif;
+            font-weight: 700;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        html {
+            overflow-x: hidden;
+        }
+
+        body {
+            width: 100%;
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+
+        .site-nav {
+            position: relative;
+            width: 100%;
+            height: 90px;
+            padding-right: clamp(1rem, 6.25vw, 5.625rem);
+            padding-left: clamp(1rem, 6.25vw, 5.625rem);
+        }
+
+        .site-nav-brand {
+            min-width: 0;
+            gap: clamp(0.75rem, 4vw, 4rem);
+        }
+
+        .site-logo {
+            width: clamp(3.25rem, 6vw, 5rem);
+            height: auto;
+            flex-shrink: 0;
+        }
+
+        .site-nav-links {
+            gap: clamp(1rem, 4vw, 4rem);
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .site-social {
+            flex-shrink: 0;
+            gap: clamp(0.5rem, 1.1vw, 0.9375rem);
+        }
+
+        .site-social img {
+            width: clamp(1.75rem, 3vw, 2.6rem);
+            height: auto;
+        }
+
+        .site-nav-toggle {
+            width: 48px;
+            height: 48px;
+            flex-shrink: 0;
+        }
+
+        .hero-content {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: min(90vw, 360px);
+            top: 12%;
+            height: auto;
+        }
+
+        .hero-section {
+            height: clamp(500px, 155vw, 640px);
+            background: #085857;
+        }
+
+        .hero-background {
+            object-fit: cover;
+        }
+
+        .hero-title {
+            font-size: clamp(2.75rem, 13vw, 3.75rem);
+            line-height: 1;
+            letter-spacing: 0.08em;
+            text-align: center;
+        }
+
+        .hero-banner {
+            position: relative;
+            width: 100%;
+            max-width: 300px;
+            aspect-ratio: 1947 / 250;
+            margin-top: 0.4rem;
+        }
+
+        .hero-banner p {
+            font-size: clamp(0.7rem, 3.4vw, 0.95rem);
+        }
+
+        .about-section {
+            position: relative;
+            height: clamp(640px, 170vw, 760px);
+            overflow: hidden;
+        }
+
+        .about-background {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .about-book {
+            position: absolute;
+            top: 42.6vw;
+            left: 50%;
+            width: 160%;
+            aspect-ratio: 625 / 409;
+            overflow: hidden;
+            container-type: inline-size;
+            transform: translateX(-50%);
+        }
+
+        .about-book-image {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .about-copy {
+            position: absolute;
+            top: 15%;
+            left: 22.5%;
+            width: 55%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #4C1C0E;
+            text-align: center;
+        }
+
+        .about-page {
+            min-width: 0;
+        }
+
+        .about-page-right {
+            width: 98%;
+        }
+
+        .about-title {
+            margin: 0 0 1.4cqw;
+            font-family: 'WildBreath', serif;
+            font-size: 6.5cqw;
+            font-weight: 400;
+            line-height: 1;
+            color: #FFF3DB;
+            -webkit-text-stroke: 2.4px #4C1C0E;
+            paint-order: stroke fill;
+            text-shadow:
+                0 2px 0 #9A542F,
+                0 4px 0 #71391F,
+                0 7.1px 0 rgba(0, 0, 0, 0.25);
+        }
+
+        .about-description {
+            margin: 0;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: clamp(0.75rem, 2cqw, 1.2rem);
+            font-weight: 700;
+            line-height: 1.22;
+        }
+
+        .site-footer {
+            position: relative;
+            display: grid;
+            min-height: 560px;
+            place-items: center;
+            overflow: hidden;
+            padding: 120px 8vw 80px;
+            background: #4C1C0E;
+            color: #F6D8A5;
+            isolation: isolate;
+        }
+
+        .footer-frame {
+            position: absolute;
+            z-index: -1;
+            inset: 8% 5.5%;
+            width: 89%;
+            height: 84%;
+            pointer-events: none;
+        }
+
+        .footer-frame img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: fill;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: minmax(180px, 1fr) minmax(0, 2fr);
+            align-items: center;
+            gap: clamp(2rem, 7vw, 6rem);
+            width: min(100%, 1000px);
+        }
+
+        .footer-nav {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.45rem;
+            margin-left: clamp(6rem, 14vw, 12rem);
+        }
+
+        .footer-nav a {
+            color: #D59A62;
+            font-family: 'WildBreath', serif;
+            font-size: clamp(1.1rem, 2vw, 1.5rem);
+            text-decoration: none;
+        }
+
+        .footer-nav a:hover,
+        .footer-nav a:focus-visible {
+            color: #F6D8A5;
+        }
+
+        .footer-support h2 {
+            margin: 0 0 1rem;
+            color: #F6D8A5;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: clamp(1.2rem, 2vw, 1.75rem);
+            text-align: center;
+        }
+
+        .footer-logo-row {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .footer-logo-row + .footer-logo-row {
+            width: 84%;
+            margin: 1rem auto 0;
+        }
+
+        .footer-logo-row img {
+            display: block;
+            width: 100%;
+            max-height: 44px;
+            object-fit: contain;
+        }
+
+        .footer-copyright {
+            margin: 2rem 0 0;
+            color: #F6D8A5;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: clamp(0.9rem, 1.5vw, 1.2rem);
+            font-weight: 700;
+            text-align: center;
+        }
+
+        @media (min-width: 768px) {
+            .hero-content {
+                width: 87.5%;
+                max-width: 1260px;
+                top: 16.06%;
+                height: auto;
+            }
+
+            .hero-title {
+                font-size: clamp(4.5rem, 10.4vw, 9.375rem);
+            }
+
+            .hero-banner {
+                width: 42%;
+                max-width: 520px;
+                margin-top: 0.5rem;
+            }
+
+            .hero-banner p {
+                font-size: clamp(1rem, 1.94vw, 1.75rem);
+            }
+
+            .about-section {
+                height: auto;
+                aspect-ratio: 1440 / 1568;
+            }
+
+            .about-book {
+                top: 25.87%;
+                width: 75.2%;
+                aspect-ratio: 1083 / 701;
+            }
+
+            .about-copy {
+                left: 14.82%;
+                width: 70.37%;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .site-nav {
+                height: 72px;
+                padding-right: 1rem;
+                padding-left: 1rem;
+            }
+
+            .site-logo {
+                width: 3.25rem;
+            }
+
+            .site-nav-toggle {
+                width: 44px;
+                height: 44px;
+            }
+
+            .site-nav-links.is-open {
+                position: absolute;
+                z-index: 100;
+                top: 100%;
+                right: 0;
+                left: 0;
+                display: flex !important;
+                flex-direction: column;
+                align-items: center;
+                gap: 0;
+                padding: 0.5rem 1rem 1rem;
+                border-bottom: 4px solid #4C1C0E;
+                background: #7A3D21;
+                box-shadow: 0 8px 12px rgba(33, 15, 8, 0.25);
+            }
+
+            .hero-section {
+                height: clamp(500px, 155vw, 640px);
+            }
+
+            .hero-background {
+                object-fit: fill;
+            }
+
+            .hero-content {
+                top: 13%;
+                width: min(88vw, 340px);
+            }
+
+            .hero-section .hero-background {
+                inset: -30% 0 auto;
+                width: 100%;
+                height: 119%;
+                object-fit: fill;
+            }
+
+            .hero-title {
+                font-size: clamp(2.5rem, 12vw, 3.5rem);
+            }
+
+            .hero-banner {
+                width: 82%;
+                margin-top: 0.2rem;
+            }
+
+            .hero-banner p {
+                font-size: clamp(0.85rem, 3.6vw, 1rem);
+            }
+
+            .about-section {
+                height: clamp(640px, 170vw, 760px);
+            }
+
+            .about-section::after {
+                position: absolute;
+                z-index: 1;
+                inset: 54% 0 4%;
+                background: #0B5F5B;
+                content: "";
+                pointer-events: none;
+            }
+
+            .about-book {
+                z-index: 2;
+                top: 17%;
+                width: 120%;
+                aspect-ratio: 625 / 409;
+            }
+
+            .about-copy {
+                top: 8%;
+                left: 7%;
+                width: 86%;
+                display: grid;
+                grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+                align-items: start;
+                column-gap: 10%;
+                text-align: left;
+            }
+
+            .about-title {
+                margin: 0 0 0.55rem;
+                font-size: clamp(1rem, 4.2cqw, 1.5rem);
+                line-height: 1.1;
+                -webkit-text-stroke: 1px #4C1C0E;
+                text-shadow:
+                    0 1px 0 #9A542F,
+                    0 2px 0 #71391F,
+                    0 4px 0 rgba(0, 0, 0, 0.25);
+            }
+
+            .about-description {
+                font-size: clamp(0.64rem, 2.4cqw, 0.85rem);
+                line-height: 1.22;
+            }
+
+            .about-page-right {
+                width: 100%;
+            }
+
+            .about-page-right .about-description {
+                padding-top: 0.1rem;
+            }
+
+            .site-nav-links a {
+                display: flex;
+                min-height: 48px;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .site-nav-links img {
+                width: auto;
+                max-width: 100%;
+                height: 28px;
+            }
+
+            .site-footer {
+                min-height: 500px;
+                padding: 105px 14vw 72px;
+            }
+
+            .footer-frame {
+                inset: 0;
+                width: 100%;
+                height: 100%;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .footer-nav {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 0.4rem 1.25rem;
+                margin-left: 0;
+            }
+
+            .footer-logo-row {
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+                gap: 0.8rem;
+            }
+
+            .footer-logo-row + .footer-logo-row {
+                width: 100%;
+                margin-top: 0.8rem;
+            }
+
+            .footer-logo-row img {
+                max-height: 34px;
+            }
+
+            .footer-copyright {
+                margin-top: 1.4rem;
+            }
+        }
+
+        @media (min-width: 641px) and (max-width: 1023px) {
+            .site-nav {
+                height: 80px;
+                padding-right: clamp(1.25rem, 5vw, 3rem);
+                padding-left: clamp(1.25rem, 5vw, 3rem);
+            }
+
+            .site-logo {
+                width: 4rem;
+            }
+
+            .site-nav-links.is-open {
+                position: absolute;
+                z-index: 100;
+                top: 100%;
+                right: 0;
+                left: 0;
+                display: flex !important;
+                justify-content: center;
+                gap: clamp(1.5rem, 6vw, 3rem);
+                padding: 1rem;
+                border-bottom: 4px solid #4C1C0E;
+                background: #7A3D21;
+                box-shadow: 0 8px 12px rgba(33, 15, 8, 0.25);
+            }
+        }
+    </style>
 </head>
 <body>
-    <header class="sticky top-0">
-        <nav class="flex items-center justify-between bg-[#7A3D21] h-[90px] border-b-[6px] border-[#4C1C0E] px-[90px]">
-            <div class="flex items-center gap-16">
-                <img src="NavBar/logo-simetri.png" class="h-[132.79px] w-[132.3px]" alt="Logo Simetri">
-                <ul class="lg:flex hidden items-center gap-16">
+    <!-- NavBar Section -->
+    <header class="site-header">
+        <nav class="site-nav flex items-center justify-between bg-[#7A3D21] border-b-[6px] border-[#4C1C0E]">
+            <div class="site-nav-brand flex items-center">
+                <img src="NavBar/logo-simetri.png" class="site-logo" alt="Logo Simetri">
+                <ul id="siteNavLinks" class="site-nav-links lg:flex hidden items-center">
                     <!-- Isi link halaman disini!!!! -->
                     <li>
                         <a href="">
@@ -36,19 +579,135 @@
                     </li>
                 </ul>
             </div>
-            <div class="lg:flex hidden items-center gap-[15px]">
+            <div class="site-social lg:flex hidden items-center">
                 <img src="NavBar/Exclude.png" alt="X Simetri" class="h-[41.58px] w-[41.58px]">
                 <img src="NavBar/Tiktok.png" alt="Tiktok Simetri" class="h-[41.58px] w-[41.58px]">
                 <img src="NavBar/ig-logo.png" alt="Instagram Simetri" class="h-[41.58px] w-[41.58px]">
                 <img src="NavBar/yt-logo.png" alt="Youtube Simetri" class="h-[41.58px] w-[41.58px]">
             </div>
-            <button id="HamburgerMenu" class="flex lg:hidden items-center justify-center w-[48px] h-[48px] bg-[#4C1C0E] rounded-lg z-[60]">
+            <button id="HamburgerMenu" class="site-nav-toggle flex lg:hidden items-center justify-center bg-[#4C1C0E] rounded-lg z-[60]" type="button" aria-label="Buka menu navigasi" aria-expanded="false" aria-controls="siteNavLinks">
                 <img id="iconHamburger" src="NavBar/hamburgerMenu.png" alt="Menu" class="w-[25.98px] h-[19.49px]">
                 <img id="iconClose" src="NavBar/closeX.png" alt="Close" class="w-[19.49px] h-[19.49px] hidden">
             </button>
         </nav>
 
     </header>
+    <!-- Hero Section -->
+    <section id="home" class="hero-section relative overflow-hidden md:h-auto md:aspect-[1440/1407]">
+        <img
+            src="heroSection/bg-hero.svg"
+            alt="Lanskap fantasi ASIK"
+            class="hero-background absolute inset-0 h-full w-full object-cover object-[center_22%] md:object-center"
+        >
 
+        <div class="hero-content">
+            <h1 class="hero-title font-judul drop-shadow-[0_6px_0_rgba(76,28,14,0.35)]">
+                ASIK
+            </h1>
+
+            <div class="hero-banner">
+                <img
+                    src="heroSection/paper-hero.png"
+                    alt=""
+                    class="absolute inset-0 h-full w-full object-fill"
+                >
+                <p class="font-teks absolute inset-0 flex items-center justify-center px-4 sm:px-6 md:px-8 text-center leading-none text-[#4C1C0E]">
+                    Asistensi Simetri Kuy!
+                </p>
+            </div>
+        </div>
+    </section>
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <img src="About/bg-about.svg" alt="Background About" class="about-background">
+        <div class="about-book">
+            <img src="About/book.png" alt="Book" class="about-book-image">
+            <div class="about-copy">
+                <div class="about-page about-page-left">
+                    <h2 class="about-title">APA ITU ASIK</h2>
+                    <p class="about-description">ASIK (Asistensi SIMETRI Kuy) merupakan program pelatihan dan pembekalan bagi mahasiswa yang akan menjadi mentor dalam kegiatan SIMETRI. Kegiatan ini dirancang untuk memberikan pemahaman materi,</p>
+                </div>
+                <div class="about-page about-page-right">
+                    <p class="about-description">metode pengajaran, serta simulasi mentoring agar mentor siap dalam mendampingi peserta. ASIK tidak hanya berfokus pada penguasaan materi, tetapi juga pada pengembangan soft skills seperti komunikasi, public speaking, teamwork, dan problem solving.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="site-footer">
+        <picture class="footer-frame" aria-hidden="true">
+            <source media="(max-width: 640px)" srcset="Footer/Border%20Mobile.png">
+            <img src="Footer/Border.png" alt="">
+        </picture>
+        <div class="footer-content">
+            <nav class="footer-nav" aria-label="Navigasi footer">
+                <a href="#home">HOME</a>
+                <a href="#about">TEMA</a>
+                <a href="#about">MATERI</a>
+                <a href="#about">ASIK</a>
+            </nav>
+            <div class="footer-support">
+                <h2>Didukung Oleh</h2>
+                <div class="footer-logo-row">
+                    <img src="Footer/DPTSI.png" alt="DPTSI ITS">
+                    <img src="Footer/Logo SI.png" alt="Sistem Informasi ITS">
+                    <img src="Footer/ITS Advancing Humanity SVG.png" alt="ITS Advancing Humanity">
+                    <img src="Footer/ITS KBB.png" alt="ITS Kampus Budaya dan Berkarakter">
+                </div>
+                <div class="footer-logo-row">
+                    <img src="Footer/Logo Kabinet.png" alt="Kabinet Pilar Aksi">
+                    <img src="Footer/SIMETRI.png" alt="SIMETRI">
+                    <img src="Footer/diktisaintek.png" alt="Diktisaintek Berdampak">
+                    <img src="Footer/HMSI.png" alt="Himpunan Mahasiswa Sistem Informasi">
+                </div>
+                <p class="footer-copyright">&copy; SIMETRI HMSI ITS</p>
+            </div>
+        </div>
+    </footer>
+    <script>
+        const navToggle = document.getElementById('HamburgerMenu');
+        const navLinks = document.getElementById('siteNavLinks');
+        const hamburgerIcon = document.getElementById('iconHamburger');
+        const closeIcon = document.getElementById('iconClose');
+
+        const closeNavMenu = () => {
+            navToggle.setAttribute('aria-expanded', 'false');
+            navToggle.setAttribute('aria-label', 'Buka menu navigasi');
+            navLinks.classList.remove('is-open');
+            hamburgerIcon.classList.remove('hidden');
+            closeIcon.classList.add('hidden');
+        };
+
+        navToggle.addEventListener('click', () => {
+            const isOpen = navToggle.getAttribute('aria-expanded') === 'true';
+            if (isOpen) {
+                closeNavMenu();
+                return;
+            }
+
+            navToggle.setAttribute('aria-expanded', 'true');
+            navToggle.setAttribute('aria-label', 'Tutup menu navigasi');
+            navLinks.classList.add('is-open');
+            hamburgerIcon.classList.add('hidden');
+            closeIcon.classList.remove('hidden');
+        });
+
+        navLinks.addEventListener('click', (event) => {
+            if (event.target.closest('a') && window.innerWidth < 1024) {
+                closeNavMenu();
+            }
+        });
+
+        window.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') {
+                closeNavMenu();
+            }
+        });
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth >= 1024) {
+                closeNavMenu();
+            }
+        });
+    </script>
 </body>
 </html>

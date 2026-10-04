@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -37,12 +37,13 @@
 
         html {
             overflow-x: hidden;
+            scroll-padding-top: 90px;
         }
 
         body {
             width: 100%;
             margin: 0;
-            overflow-x: hidden;
+            overflow-x: clip;
         }
 
         img {
@@ -295,7 +296,7 @@
             margin-top: 1rem;
         }
 
-        .doc-nav button {
+        .doc-nav > button {
             color: #FFF3DB;
             font-size: 1.5rem;
             font-weight: 700;
@@ -490,14 +491,6 @@
                 box-shadow: 0 8px 12px rgba(33, 15, 8, 0.25);
             }
 
-            .hero-section {
-                height: clamp(500px, 155vw, 640px);
-            }
-
-            .hero-background {
-                object-fit: fill;
-            }
-
             .hero-content {
                 top: 13%;
                 width: min(88vw, 340px);
@@ -521,10 +514,6 @@
 
             .hero-banner p {
                 font-size: clamp(0.85rem, 3.6vw, 1rem);
-            }
-
-            .about-section {
-                height: clamp(640px, 170vw, 760px);
             }
 
             .about-section::after {
@@ -669,24 +658,24 @@
             <div class="site-nav-brand flex items-center">
                 <img src="NavBar/logo-simetri.png" class="site-logo" alt="Logo Simetri">
                 <ul id="siteNavLinks" class="site-nav-links lg:flex hidden items-center">
-                    <!-- Isi link halaman disini!!!! -->
+                    <!-- Isi link halaman disini!!! (Tema & Materi: ganti "#" dengan halaman aslinya) -->
                     <li>
-                        <a href="">
+                        <a href="#home">
                             <img src="NavBar/homeFont.png" class="h-[36px] w-[61px]" alt="Home page">
                         </a>
                     </li>
                     <li>
-                        <a href="">
+                        <a href="#">
                             <img src="NavBar/temaFont.png" class="h-[36px] w-[61px]" alt="Tema page">
                         </a>
                     </li>
                     <li>
-                        <a href="">
+                        <a href="#">
                             <img src="NavBar/materiFont.png" class="h-[36px] w-[82px]" alt="Materi page">
                         </a>
                     </li>
                     <li>
-                        <a href="">
+                        <a href="#about">
                             <img src="NavBar/asikFont.png" class="h-[36px] w-[62px]" alt="Asik page">
                         </a>
                     </li>
@@ -755,7 +744,7 @@
         <h2 class="doc-title font-judul">DOKUMENTASI</h2>
 
         <div class="doc-carousel">
-            <img src="section2-dokumentasi/bg-fotodokumentasi.png" alt="Background" class="doc-carousel-frame">
+            <img src="section2-dokumentasi/bg-fotodokumentasi.png" alt="Background" class="doc-carousel-frame" loading="lazy">
             <div class="doc-carousel-viewport">
                 <div id="docTrack" class="doc-carousel-track">
                     <!-- Card 1 -->
@@ -798,16 +787,16 @@
             <div class="footer-support">
                 <h2>Didukung Oleh</h2>
                 <div class="footer-logo-row">
-                    <img src="Footer/DPTSI.png" alt="DPTSI ITS">
-                    <img src="Footer/Logo SI.png" alt="Sistem Informasi ITS">
-                    <img src="Footer/ITS Advancing Humanity SVG.png" alt="ITS Advancing Humanity">
-                    <img src="Footer/ITS KBB.png" alt="ITS Kampus Budaya dan Berkarakter">
+                    <img src="Footer/DPTSI.png" alt="DPTSI ITS" loading="lazy">
+                    <img src="Footer/Logo SI.png" alt="Sistem Informasi ITS" loading="lazy">
+                    <img src="Footer/ITS Advancing Humanity SVG.png" alt="ITS Advancing Humanity" loading="lazy">
+                    <img src="Footer/ITS KBB.png" alt="ITS Kampus Budaya dan Berkarakter" loading="lazy">
                 </div>
                 <div class="footer-logo-row">
-                    <img src="Footer/Logo Kabinet.png" alt="Kabinet Pilar Aksi">
-                    <img src="Footer/SIMETRI.png" alt="SIMETRI">
-                    <img src="Footer/diktisaintek.png" alt="Diktisaintek Berdampak">
-                    <img src="Footer/HMSI.png" alt="Himpunan Mahasiswa Sistem Informasi">
+                    <img src="Footer/Logo Kabinet.png" alt="Kabinet Pilar Aksi" loading="lazy">
+                    <img src="Footer/SIMETRI.png" alt="SIMETRI" loading="lazy">
+                    <img src="Footer/diktisaintek.png" alt="Diktisaintek Berdampak" loading="lazy">
+                    <img src="Footer/HMSI.png" alt="Himpunan Mahasiswa Sistem Informasi" loading="lazy">
                 </div>
                 <p class="footer-copyright">&copy; SIMETRI HMSI ITS</p>
             </div>

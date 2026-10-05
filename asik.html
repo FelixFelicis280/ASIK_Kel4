@@ -1,706 +1,68 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" class="overflow-x-hidden [scroll-padding-top:90px]">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Asik</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        judul: ['WildBreath', 'serif'],
+                        teks: ['Times New Roman', 'Times', 'serif'],
+                    },
+                },
+            },
+        };
+    </script>
     <style>
         @font-face {
             font-family: 'WildBreath';
             src: url('the_wild_breath_of_zelda/The Wild Breath of Zelda.otf') format('opentype');
             font-display: swap;
         }
-        .font-judul {
-            font-family: 'WildBreath', serif;
-            font-weight: 400;
-            color: #FFF3DB;
-            -webkit-text-stroke: 2px #4C1C0E;
-            paint-order: stroke fill;
-        }
-        @media (min-width: 768px) {
-            .font-judul {
-                -webkit-text-stroke: 4px #4C1C0E;
-            }
-        }
-        .font-teks {
-            font-family: 'Times New Roman', Times, serif;
-            font-weight: 700;
-        }
-
-        *,
-        *::before,
-        *::after {
-            box-sizing: border-box;
-        }
-
-        html {
-            overflow-x: hidden;
-            scroll-padding-top: 90px;
-        }
-
-        body {
-            width: 100%;
-            margin: 0;
-            overflow-x: clip;
-        }
-
-        img {
-            max-width: 100%;
-        }
-
-        .site-header {
-            position: sticky;
-            top: 0;
-            z-index: 50;
-        }
-
-        .site-nav {
-            position: relative;
-            width: 100%;
-            height: 90px;
-            padding-right: clamp(1rem, 6.25vw, 5.625rem);
-            padding-left: clamp(1rem, 6.25vw, 5.625rem);
-        }
-
-        .site-nav-brand {
-            min-width: 0;
-            gap: clamp(0.75rem, 4vw, 4rem);
-        }
-
-        .site-logo {
-            width: clamp(3.25rem, 6vw, 5rem);
-            height: auto;
-            flex-shrink: 0;
-        }
-
-        .site-nav-links {
-            gap: clamp(1rem, 4vw, 4rem);
-            margin: 0;
-            padding: 0;
-            list-style: none;
-        }
-
-        .site-social {
-            flex-shrink: 0;
-            gap: clamp(0.5rem, 1.1vw, 0.9375rem);
-        }
-
-        .site-social img {
-            width: clamp(1.75rem, 3vw, 2.6rem);
-            height: auto;
-        }
-
-        .site-nav-toggle {
-            width: 48px;
-            height: 48px;
-            flex-shrink: 0;
-        }
-
-        .hero-content {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 10;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            width: min(90vw, 360px);
-            top: 12%;
-            height: auto;
-        }
-
-        .hero-section {
-            height: clamp(500px, 155vw, 640px);
-            background: #085857;
-        }
-
-        .hero-background {
-            object-fit: cover;
-        }
-
-        .hero-title {
-            width: 100%;
-            color: #FFFFFF;
-            -webkit-text-stroke: 2px #7A3D21;
-            paint-order: stroke fill;
-            filter: drop-shadow(0 9px 0 #7A3D21);
-            font-size: clamp(2.75rem, 13vw, 3.75rem);
-            line-height: 1;
-            letter-spacing: 0;
-            text-align: center;
-        }
-
-        .hero-banner {
-            position: relative;
-            width: 100%;
-            max-width: 300px;
-            aspect-ratio: 1947 / 250;
-            margin-top: 0.4rem;
-        }
-
-        .hero-banner p {
-            font-size: clamp(0.7rem, 3.7vw, 1rem);
-            font-weight: 400;
-        }
-
-        .about-section {
-            position: relative;
-            height: clamp(640px, 170vw, 760px);
-            overflow: hidden;
-        }
-
-        .about-background {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .about-book {
-            position: absolute;
-            top: 42.6vw;
-            left: 50%;
-            width: 160%;
-            aspect-ratio: 625 / 409;
-            overflow: hidden;
-            container-type: inline-size;
-            transform: translateX(-50%);
-        }
-
-        .about-book-image {
-            display: block;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .about-copy {
-            position: absolute;
-            top: 15%;
-            left: 22.5%;
-            width: 55%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            color: #4C1C0E;
-            text-align: center;
-        }
-
-        .about-page {
-            min-width: 0;
-        }
-
-        .about-page-right {
-            width: 98%;
-        }
-
-        .about-title {
-            margin: 0 0 1.4cqw;
-            font-family: 'WildBreath', serif;
-            font-size: 6.5cqw;
-            font-weight: 400;
-            line-height: 1;
-            color: #FFF3DB;
-            -webkit-text-stroke: 2.4px #4C1C0E;
-            paint-order: stroke fill;
-            text-shadow:
-                0 2px 0 #9A542F,
-                0 4px 0 #71391F,
-                0 7.1px 0 rgba(0, 0, 0, 0.25);
-        }
-
-        .about-description {
-            margin: 0;
-            font-family: 'Times New Roman', Times, serif;
-            font-size: clamp(0.75rem, 2cqw, 1.2rem);
-            font-weight: 700;
-            line-height: 1.22;
-        }
-
-        /* ===== Dokumentasi ===== */
-        .doc-section {
-            position: relative;
-            width: 100%;
-            min-height: 100vh;
-            overflow: hidden;
-            padding: 4rem 0.75rem;
-            background: #0B5F5B;
-        }
-
-        .doc-background {
-            position: absolute;
-            inset: 0;
-            z-index: 0;
-            background-image: url('section2-dokumentasi/bg-desktop.png');
-            background-size: cover;
-            background-position: center;
-        }
-
-        .doc-title {
-            position: relative;
-            z-index: 4;
-            width: fit-content;
-            margin: 2rem auto 2.5rem;
-            font-size: clamp(2.25rem, 8vw, 4.5rem);
-            line-height: 1;
-            text-align: center;
-            filter: drop-shadow(0 6px 0 #7A3D21);
-        }
-
-        .doc-carousel {
-            position: relative;
-            z-index: 2;
-            width: 100%;
-            max-width: min(390px, 100%);
-            margin: 0 auto;
-        }
-
-        .doc-carousel-frame {
-            position: absolute;
-            inset: 0;
-            z-index: 1;
-            width: 100%;
-            height: 100%;
-            object-fit: fill;
-        }
-
-        .doc-carousel-viewport {
-            position: relative;
-            z-index: 2;
-            overflow: hidden;
-        }
-
-        .doc-carousel-track {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
-        }
-
-        .doc-slide {
-            display: flex;
-            flex: 0 0 100%;
-            flex-direction: column;
-            align-items: center;
-            padding: 1rem 1.5rem 2rem;
-        }
-
-        .doc-slide img {
-            display: block;
-            width: 100%;
-        }
-
-        .doc-nav {
-            position: relative;
-            z-index: 3;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .doc-nav > button {
-            color: #FFF3DB;
-            font-size: 1.5rem;
-            font-weight: 700;
-            background: none;
-            border: 0;
-            cursor: pointer;
-        }
-
-        .doc-dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 9999px;
-            background: #FFF3DB;
-            opacity: 0.4;
-            border: 0;
-            padding: 0;
-            cursor: pointer;
-            transition: opacity 0.3s;
-        }
-
-        .doc-dot.is-active {
-            opacity: 1;
-        }
-
-        @media (min-width: 768px) {
-            .doc-carousel {
-                max-width: 700px;
-            }
-        }
-
-        /* ===== Footer ===== */
-        .site-footer {
-            position: relative;
-            display: grid;
-            min-height: 560px;
-            place-items: center;
-            overflow: hidden;
-            padding: 120px 8vw 80px;
-            background: #4C1C0E;
-            color: #F6D8A5;
-            isolation: isolate;
-        }
-
-        .footer-frame {
-            position: absolute;
-            z-index: -1;
-            inset: 8% 5.5%;
-            width: 89%;
-            height: 84%;
-            pointer-events: none;
-        }
-
-        .footer-frame img {
-            display: block;
-            width: 100%;
-            height: 100%;
-            object-fit: fill;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: minmax(180px, 1fr) minmax(0, 2fr);
-            align-items: center;
-            gap: clamp(2rem, 7vw, 6rem);
-            width: min(100%, 1000px);
-        }
-
-        .footer-nav {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 0.45rem;
-            margin-left: clamp(6rem, 14vw, 12rem);
-        }
-
-        .footer-nav a {
-            color: #D59A62;
-            font-family: 'WildBreath', serif;
-            font-size: clamp(1.1rem, 2vw, 1.5rem);
-            text-decoration: none;
-        }
-
-        .footer-nav a:hover,
-        .footer-nav a:focus-visible {
-            color: #F6D8A5;
-        }
-
-        .footer-support h2 {
-            margin: 0 0 1rem;
-            color: #F6D8A5;
-            font-family: 'Times New Roman', Times, serif;
-            font-size: clamp(1.2rem, 2vw, 1.75rem);
-            text-align: center;
-        }
-
-        .footer-logo-row {
-            display: grid;
-            grid-template-columns: repeat(4, minmax(0, 1fr));
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .footer-logo-row + .footer-logo-row {
-            width: 84%;
-            margin: 1rem auto 0;
-        }
-
-        .footer-logo-row img {
-            display: block;
-            width: 100%;
-            max-height: 44px;
-            object-fit: contain;
-        }
-
-        .footer-copyright {
-            margin: 2rem 0 0;
-            color: #F6D8A5;
-            font-family: 'Times New Roman', Times, serif;
-            font-size: clamp(0.9rem, 1.5vw, 1.2rem);
-            font-weight: 700;
-            text-align: center;
-        }
-
-        @media (min-width: 768px) {
-            .hero-content {
-                width: 87.5%;
-                max-width: 1260px;
-                top: 16.06%;
-                height: auto;
-            }
-
-            .hero-title {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                width: 100%;
-                max-width: 1260px;
-                height: 184px;
-                font-size: clamp(4.5rem, 12.7vw, 10rem);
-            }
-
-            .hero-banner {
-                width: 42%;
-                max-width: 520px;
-                margin-top: 0.5rem;
-            }
-
-            .hero-banner p {
-                font-size: 36px;
-                line-height: 36px;
-            }
-
-            .about-section {
-                height: auto;
-                aspect-ratio: 1440 / 1568;
-            }
-
-            .about-book {
-                top: 25.87%;
-                width: 75.2%;
-                aspect-ratio: 1083 / 701;
-            }
-
-            .about-copy {
-                left: 14.82%;
-                width: 70.37%;
-            }
-        }
-
-        @media (max-width: 767px) {
-            .site-nav {
-                height: 72px;
-                padding-right: 1rem;
-                padding-left: 1rem;
-            }
-
-            .site-logo {
-                width: 3.25rem;
-            }
-
-            .site-nav-toggle {
-                width: 44px;
-                height: 44px;
-            }
-
-            .site-nav-links.is-open {
-                position: absolute;
-                z-index: 100;
-                top: 100%;
-                right: 0;
-                left: 0;
-                display: flex !important;
-                flex-direction: column;
-                align-items: center;
-                gap: 0;
-                padding: 0.5rem 1rem 1rem;
-                border-bottom: 4px solid #4C1C0E;
-                background: #7A3D21;
-                box-shadow: 0 8px 12px rgba(33, 15, 8, 0.25);
-            }
-
-            .hero-content {
-                top: 13%;
-                width: min(88vw, 340px);
-            }
-
-            .hero-section .hero-background {
-                inset: -30% 0 auto;
-                width: 100%;
-                height: 119%;
-                object-fit: fill;
-            }
-
-            .hero-title {
-                font-size: clamp(2.5rem, 12vw, 3.5rem);
-            }
-
-            .hero-banner {
-                width: 82%;
-                margin-top: 0.2rem;
-            }
-
-            .hero-banner p {
-                font-size: clamp(0.85rem, 3.9vw, 1.1rem);
-            }
-
-            .about-section::after {
-                position: absolute;
-                z-index: 1;
-                inset: 54% 0 4%;
-                background: #0B5F5B;
-                content: "";
-                pointer-events: none;
-            }
-
-            .about-book {
-                z-index: 2;
-                top: 17%;
-                width: 120%;
-                aspect-ratio: 625 / 409;
-            }
-
-            .about-copy {
-                top: 8%;
-                left: 7%;
-                width: 86%;
-                display: grid;
-                grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-                align-items: start;
-                column-gap: 10%;
-                text-align: left;
-            }
-
-            .about-title {
-                margin: 0 0 0.55rem;
-                font-size: clamp(1rem, 4.2cqw, 1.5rem);
-                line-height: 1.1;
-                -webkit-text-stroke: 1px #4C1C0E;
-                text-shadow:
-                    0 1px 0 #9A542F,
-                    0 2px 0 #71391F,
-                    0 4px 0 rgba(0, 0, 0, 0.25);
-            }
-
-            .about-description {
-                font-size: clamp(0.64rem, 2.4cqw, 0.85rem);
-                line-height: 1.22;
-            }
-
-            .about-page-right {
-                width: 100%;
-            }
-
-            .about-page-right .about-description {
-                padding-top: 0.1rem;
-            }
-
-            .site-nav-links a {
-                display: flex;
-                min-height: 48px;
-                align-items: center;
-                justify-content: center;
-            }
-
-            .site-nav-links img {
-                width: auto;
-                max-width: 100%;
-                height: 28px;
-            }
-
-            .site-footer {
-                min-height: 500px;
-                padding: 105px 14vw 72px;
-            }
-
-            .footer-frame {
-                inset: 0;
-                width: 100%;
-                height: 100%;
-            }
-
-            .footer-content {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-
-            .footer-nav {
-                flex-direction: row;
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 0.4rem 1.25rem;
-                margin-left: 0;
-            }
-
-            .footer-logo-row {
-                grid-template-columns: repeat(4, minmax(0, 1fr));
-                gap: 0.8rem;
-            }
-
-            .footer-logo-row + .footer-logo-row {
-                width: 100%;
-                margin-top: 0.8rem;
-            }
-
-            .footer-logo-row img {
-                max-height: 34px;
-            }
-
-            .footer-copyright {
-                margin-top: 1.4rem;
-            }
-        }
-
-        @media (min-width: 641px) and (max-width: 1023px) {
-            .site-nav {
-                height: 80px;
-                padding-right: clamp(1.25rem, 5vw, 3rem);
-                padding-left: clamp(1.25rem, 5vw, 3rem);
-            }
-
-            .site-logo {
-                width: 4rem;
-            }
-
-            .site-nav-links.is-open {
-                position: absolute;
-                z-index: 100;
-                top: 100%;
-                right: 0;
-                left: 0;
-                display: flex !important;
-                justify-content: center;
-                gap: clamp(1.5rem, 6vw, 3rem);
-                padding: 1rem;
-                border-bottom: 4px solid #4C1C0E;
-                background: #7A3D21;
-                box-shadow: 0 8px 12px rgba(33, 15, 8, 0.25);
-            }
-        }
     </style>
 </head>
-<body>
+<body class="w-full overflow-x-clip">
     <!-- NavBar Section -->
-    <header class="site-header">
-        <nav class="site-nav flex items-center justify-between bg-[#7A3D21] border-b-[6px] border-[#4C1C0E]">
-            <div class="site-nav-brand flex items-center">
-                <img src="NavBar/logo-simetri.png" class="site-logo" alt="Logo Simetri">
-                <ul id="siteNavLinks" class="site-nav-links lg:flex hidden items-center">
+    <header class="sticky top-0 z-50">
+        <nav class="relative flex h-[90px] w-full items-center justify-between border-b-[6px] border-[#4C1C0E] bg-[#7A3D21] px-[clamp(1rem,6.25vw,5.625rem)] max-[767px]:h-[72px] max-[767px]:px-4 min-[641px]:max-[1023px]:h-[80px] min-[641px]:max-[1023px]:px-[clamp(1.25rem,5vw,3rem)]">
+            <div class="flex min-w-0 items-center gap-[clamp(0.75rem,4vw,4rem)]">
+                <img src="NavBar/logo-simetri.png" class="h-auto w-[clamp(3.25rem,6vw,5rem)] shrink-0 max-[767px]:w-[3.25rem] min-[641px]:max-[1023px]:w-16" alt="Logo Simetri">
+                <ul id="siteNavLinks" data-open="false" class="m-0 hidden list-none items-center gap-[clamp(1rem,4vw,4rem)] p-0 data-[open=true]:flex lg:flex max-[1023px]:data-[open=true]:absolute max-[1023px]:data-[open=true]:left-0 max-[1023px]:data-[open=true]:right-0 max-[1023px]:data-[open=true]:top-full max-[1023px]:data-[open=true]:z-[100] max-[767px]:data-[open=true]:flex-col max-[767px]:data-[open=true]:items-center max-[767px]:data-[open=true]:gap-0 max-[767px]:data-[open=true]:border-b-4 max-[767px]:data-[open=true]:border-[#4C1C0E] max-[767px]:data-[open=true]:bg-[#7A3D21] max-[767px]:data-[open=true]:px-4 max-[767px]:data-[open=true]:pt-2 max-[767px]:data-[open=true]:pb-4 max-[767px]:data-[open=true]:shadow-[0_8px_12px_rgba(33,15,8,0.25)] min-[641px]:max-[1023px]:data-[open=true]:justify-center min-[641px]:max-[1023px]:data-[open=true]:gap-[clamp(1.5rem,6vw,3rem)] min-[641px]:max-[1023px]:data-[open=true]:border-b-4 min-[641px]:max-[1023px]:data-[open=true]:border-[#4C1C0E] min-[641px]:max-[1023px]:data-[open=true]:bg-[#7A3D21] min-[641px]:max-[1023px]:data-[open=true]:shadow-[0_8px_12px_rgba(33,15,8,0.25)] min-[641px]:max-[1023px]:data-[open=true]:p-4">
                     <!-- Isi link halaman disini!!! (Tema & Materi: ganti "#" dengan halaman aslinya) -->
                     <li>
-                        <a href="#home">
-                            <img src="NavBar/homeFont.png" class="h-[36px] w-[61px]" alt="Home page">
+                        <a href="#home" class="max-[767px]:flex max-[767px]:min-h-12 max-[767px]:items-center max-[767px]:justify-center">
+                            <img src="NavBar/homeFont.png" class="h-[36px] w-[61px] max-[767px]:h-7 max-[767px]:w-auto max-[767px]:max-w-full" alt="Home page">
                         </a>
                     </li>
                     <li>
-                        <a href="#">
-                            <img src="NavBar/temaFont.png" class="h-[36px] w-[61px]" alt="Tema page">
+                        <a href="#" class="max-[767px]:flex max-[767px]:min-h-12 max-[767px]:items-center max-[767px]:justify-center">
+                            <img src="NavBar/temaFont.png" class="h-[36px] w-[61px] max-[767px]:h-7 max-[767px]:w-auto max-[767px]:max-w-full" alt="Tema page">
                         </a>
                     </li>
                     <li>
-                        <a href="#">
-                            <img src="NavBar/materiFont.png" class="h-[36px] w-[82px]" alt="Materi page">
+                        <a href="#" class="max-[767px]:flex max-[767px]:min-h-12 max-[767px]:items-center max-[767px]:justify-center">
+                            <img src="NavBar/materiFont.png" class="h-[36px] w-[82px] max-[767px]:h-7 max-[767px]:w-auto max-[767px]:max-w-full" alt="Materi page">
                         </a>
                     </li>
                     <li>
-                        <a href="#about">
-                            <img src="NavBar/asikFont.png" class="h-[36px] w-[62px]" alt="Asik page">
+                        <a href="#about" class="max-[767px]:flex max-[767px]:min-h-12 max-[767px]:items-center max-[767px]:justify-center">
+                            <img src="NavBar/asikFont.png" class="h-[36px] w-[62px] max-[767px]:h-7 max-[767px]:w-auto max-[767px]:max-w-full" alt="Asik page">
                         </a>
                     </li>
                 </ul>
             </div>
-            <div class="site-social lg:flex hidden items-center">
-                <img src="NavBar/Exclude.png" alt="X Simetri" class="h-[41.58px] w-[41.58px]">
-                <img src="NavBar/Tiktok.png" alt="Tiktok Simetri" class="h-[41.58px] w-[41.58px]">
-                <img src="NavBar/ig-logo.png" alt="Instagram Simetri" class="h-[41.58px] w-[41.58px]">
-                <img src="NavBar/yt-logo.png" alt="Youtube Simetri" class="h-[41.58px] w-[41.58px]">
+            <div class="hidden shrink-0 items-center gap-[clamp(0.5rem,1.1vw,0.9375rem)] lg:flex">
+                <img src="NavBar/Exclude.png" alt="X Simetri" class="h-auto w-[clamp(1.75rem,3vw,2.6rem)]">
+                <img src="NavBar/Tiktok.png" alt="Tiktok Simetri" class="h-auto w-[clamp(1.75rem,3vw,2.6rem)]">
+                <img src="NavBar/ig-logo.png" alt="Instagram Simetri" class="h-auto w-[clamp(1.75rem,3vw,2.6rem)]">
+                <img src="NavBar/yt-logo.png" alt="Youtube Simetri" class="h-auto w-[clamp(1.75rem,3vw,2.6rem)]">
             </div>
-            <button id="HamburgerMenu" class="site-nav-toggle flex lg:hidden items-center justify-center bg-[#4C1C0E] rounded-lg z-[60]" type="button" aria-label="Buka menu navigasi" aria-expanded="false" aria-controls="siteNavLinks">
+            <button id="HamburgerMenu" class="z-[60] flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-[#4C1C0E] max-[767px]:h-11 max-[767px]:w-11 lg:hidden" type="button" aria-label="Buka menu navigasi" aria-expanded="false" aria-controls="siteNavLinks">
                 <img id="iconHamburger" src="NavBar/hamburgerMenu.png" alt="Menu" class="w-[25.98px] h-[19.49px]">
                 <img id="iconClose" src="NavBar/closeX.png" alt="Close" class="w-[19.49px] h-[19.49px] hidden">
             </button>
@@ -708,25 +70,25 @@
     </header>
 
     <!-- Hero Section -->
-    <section id="home" class="hero-section relative overflow-hidden md:h-auto md:aspect-[1440/1407]">
+    <section id="home" class="relative h-[clamp(500px,155vw,640px)] overflow-hidden bg-[#085857] md:h-auto md:aspect-[1440/1407]">
         <img
             src="heroSection/bg-hero.svg"
             alt="Lanskap fantasi ASIK"
-            class="hero-background absolute inset-0 h-full w-full object-cover object-[center_22%] md:object-center"
+            class="absolute inset-0 h-full w-full object-cover object-[center_22%] max-[767px]:inset-[-30%_0_auto] max-[767px]:h-[119%] max-[767px]:w-full max-[767px]:object-fill md:object-center"
         >
 
-        <div class="hero-content">
-            <h1 class="hero-title font-judul">
+        <div class="absolute left-1/2 top-[12%] z-10 flex h-auto w-[min(90vw,360px)] -translate-x-1/2 flex-col items-center justify-center max-[767px]:top-[13%] max-[767px]:w-[min(88vw,340px)] md:top-[16.06%] md:w-[87.5%] md:max-w-[1260px]">
+            <h1 class="w-full text-center text-[clamp(2.75rem,13vw,3.75rem)] font-judul font-normal leading-none tracking-[0] text-white [filter:drop-shadow(0_9px_0_#7A3D21)] [-webkit-text-stroke:2px_#7A3D21] [paint-order:stroke_fill] max-[767px]:text-[clamp(2.5rem,12vw,3.5rem)] md:flex md:h-[184px] md:max-w-[1260px] md:items-center md:justify-center md:text-[clamp(4.5rem,12.7vw,10rem)]">
                 ASIK
             </h1>
 
-            <div class="hero-banner">
+            <div class="relative mt-[0.4rem] aspect-[1947/250] w-full max-w-[300px] max-[767px]:mt-[0.2rem] max-[767px]:w-[82%] md:mt-2 md:w-[42%] md:max-w-[520px]">
                 <img
                     src="heroSection/paper-hero.png"
                     alt=""
                     class="absolute inset-0 h-full w-full object-fill"
                 >
-                <p class="font-teks absolute inset-0 flex items-center justify-center px-4 sm:px-6 md:px-8 text-center leading-none text-[#7A3D21]">
+                <p class="font-teks absolute inset-0 flex items-center justify-center px-4 text-center text-[clamp(0.7rem,3.7vw,1rem)] font-normal leading-none text-[#7A3D21] max-[767px]:text-[clamp(0.85rem,3.9vw,1.1rem)] sm:px-6 md:px-8 md:text-[36px] md:leading-[36px]">
                     Asistensi Simetri Kuy!
                 </p>
             </div>
@@ -734,84 +96,84 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="about-section">
-        <img src="About/bg-about.svg" alt="Background About" class="about-background">
-        <div class="about-book">
-            <img src="About/book.png" alt="Book" class="about-book-image">
-            <div class="about-copy">
-                <div class="about-page about-page-left">
-                    <h2 class="about-title">APA ITU ASIK</h2>
-                    <p class="about-description">ASIK (Asistensi SIMETRI Kuy) merupakan program pelatihan dan pembekalan bagi mahasiswa yang akan menjadi mentor dalam kegiatan SIMETRI. Kegiatan ini dirancang untuk memberikan pemahaman materi,</p>
+    <section id="about" class="relative h-[clamp(640px,170vw,760px)] overflow-hidden max-[767px]:after:absolute max-[767px]:after:z-[1] max-[767px]:after:content-[''] max-[767px]:after:pointer-events-none max-[767px]:after:inset-[54%_0_4%] max-[767px]:after:bg-[#0B5F5B] md:h-auto md:aspect-[1440/1568]">
+        <img src="About/bg-about.svg" alt="Background About" class="absolute inset-0 h-full w-full object-cover">
+        <div class="absolute left-1/2 top-[42.6vw] aspect-[625/409] w-[160%] -translate-x-1/2 overflow-hidden [container-type:inline-size] max-[767px]:top-[17%] max-[767px]:z-[2] max-[767px]:w-[120%] md:top-[25.87%] md:w-[75.2%] md:aspect-[1083/701]">
+            <img src="About/book.png" alt="Book" class="block h-full w-full object-cover">
+            <div class="absolute left-[22.5%] top-[15%] flex w-[55%] flex-col items-center text-center text-[#4C1C0E] max-[767px]:left-[7%] max-[767px]:top-[8%] max-[767px]:grid max-[767px]:w-[86%] max-[767px]:grid-cols-2 max-[767px]:items-start max-[767px]:gap-x-[10%] max-[767px]:text-left md:left-[14.82%] md:w-[70.37%]">
+                <div class="min-w-0">
+                    <h2 class="mb-[1.4cqw] font-judul text-[6.5cqw] font-normal leading-none text-[#FFF3DB] [text-shadow:0_2px_0_#9A542F,0_4px_0_#71391F,0_7.1px_0_rgba(0,0,0,0.25)] [-webkit-text-stroke:2.4px_#4C1C0E] [paint-order:stroke_fill] max-[767px]:mb-[0.55rem] max-[767px]:text-[clamp(1rem,4.2cqw,1.5rem)] max-[767px]:leading-[1.1] max-[767px]:[-webkit-text-stroke:1px_#4C1C0E] max-[767px]:[text-shadow:0_1px_0_#9A542F,0_2px_0_#71391F,0_4px_0_rgba(0,0,0,0.25)]">APA ITU ASIK</h2>
+                    <p class="m-0 font-teks text-[clamp(0.75rem,2cqw,1.2rem)] font-bold leading-[1.22] max-[767px]:text-[clamp(0.64rem,2.4cqw,0.85rem)]">ASIK (Asistensi SIMETRI Kuy) merupakan program pelatihan dan pembekalan bagi mahasiswa yang akan menjadi mentor dalam kegiatan SIMETRI. Kegiatan ini dirancang untuk memberikan pemahaman materi,</p>
                 </div>
-                <div class="about-page about-page-right">
-                    <p class="about-description">metode pengajaran, serta simulasi mentoring agar mentor siap dalam mendampingi peserta. ASIK tidak hanya berfokus pada penguasaan materi, tetapi juga pada pengembangan soft skills seperti komunikasi, public speaking, teamwork, dan problem solving.</p>
+                <div class="min-w-0 w-[98%] max-[767px]:w-full">
+                    <p class="m-0 font-teks text-[clamp(0.75rem,2cqw,1.2rem)] font-bold leading-[1.22] max-[767px]:pt-[0.1rem] max-[767px]:text-[clamp(0.64rem,2.4cqw,0.85rem)]">metode pengajaran, serta simulasi mentoring agar mentor siap dalam mendampingi peserta. ASIK tidak hanya berfokus pada penguasaan materi, tetapi juga pada pengembangan soft skills seperti komunikasi, public speaking, teamwork, dan problem solving.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Dokumentasi Section -->
-    <section id="dokumentasi" class="doc-section">
-        <div class="doc-background"></div>
+    <section id="dokumentasi" class="relative min-h-screen w-full overflow-hidden bg-[#0B5F5B] px-3 py-16">
+        <div class="absolute inset-0 z-0 bg-[url('section2-dokumentasi/bg-desktop.png')] bg-cover bg-center"></div>
 
-        <h2 class="doc-title font-judul">DOKUMENTASI</h2>
+        <h2 class="relative z-[4] mx-auto mt-8 mb-10 w-fit text-center text-[clamp(2.25rem,8vw,4.5rem)] font-judul font-normal leading-none text-[#FFF3DB] [filter:drop-shadow(0_6px_0_#7A3D21)] [-webkit-text-stroke:2px_#4C1C0E] [paint-order:stroke_fill] md:[-webkit-text-stroke:4px_#4C1C0E]">DOKUMENTASI</h2>
 
-        <div class="doc-carousel">
-            <img src="section2-dokumentasi/bg-fotodokumentasi.png" alt="Background" class="doc-carousel-frame" loading="lazy">
-            <div class="doc-carousel-viewport">
-                <div id="docTrack" class="doc-carousel-track">
+        <div class="relative z-[2] mx-auto w-full max-w-[min(390px,100%)] md:max-w-[700px]">
+            <img src="section2-dokumentasi/bg-fotodokumentasi.png" alt="Background" class="absolute inset-0 z-[1] h-full w-full object-fill" loading="lazy">
+            <div class="relative z-[2] overflow-hidden">
+                <div id="docTrack" data-index="0" class="flex transition-transform duration-500 ease-in-out data-[index='0']:translate-x-0 data-[index='1']:-translate-x-full data-[index='2']:-translate-x-[200%]">
                     <!-- Card 1 -->
-                    <div class="doc-slide">
-                        <img src="section2-dokumentasi/dokumentasi1.png" alt="Dokumentasi 1">
+                    <div class="flex shrink-0 basis-full flex-col items-center px-6 pt-4 pb-8">
+                        <img src="section2-dokumentasi/dokumentasi1.png" alt="Dokumentasi 1" class="block w-full">
                     </div>
                     <!-- Card 2 (ganti src sesuai nama file aslimu) -->
-                    <div class="doc-slide">
-                        <img src="section2-dokumentasi/dokumentasi2.png" alt="Dokumentasi 2">
+                    <div class="flex shrink-0 basis-full flex-col items-center px-6 pt-4 pb-8">
+                        <img src="section2-dokumentasi/dokumentasi2.png" alt="Dokumentasi 2" class="block w-full">
                     </div>
                     <!-- Card 3 (ganti src sesuai nama file aslimu) -->
-                    <div class="doc-slide">
-                        <img src="section2-dokumentasi/dokumentasi3.png" alt="Dokumentasi 3">
+                    <div class="flex shrink-0 basis-full flex-col items-center px-6 pt-4 pb-8">
+                        <img src="section2-dokumentasi/dokumentasi3.png" alt="Dokumentasi 3" class="block w-full">
                     </div>
                 </div>
             </div>
         </div>
 
         <!-- Carousel Navigation -->
-        <div class="doc-nav">
-            <button id="docPrev" type="button" aria-label="Sebelumnya">&#10094;</button>
+        <div class="relative z-[3] mt-4 flex items-center justify-center gap-4">
+            <button id="docPrev" class="cursor-pointer border-0 bg-transparent text-2xl font-bold text-[#FFF3DB] opacity-100" type="button" aria-label="Sebelumnya">&#10094;</button>
             <div id="docDots" class="flex items-center gap-2"></div>
-            <button id="docNext" type="button" aria-label="Berikutnya">&#10095;</button>
+            <button id="docNext" class="cursor-pointer border-0 bg-transparent text-2xl font-bold text-[#FFF3DB] opacity-100" type="button" aria-label="Berikutnya">&#10095;</button>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="site-footer">
-        <picture class="footer-frame" aria-hidden="true">
+    <footer class="relative isolate grid min-h-[560px] place-items-center overflow-hidden bg-[#4C1C0E] px-[8vw] pt-[120px] pb-20 text-[#F6D8A5] max-[767px]:min-h-[500px] max-[767px]:px-[14vw] max-[767px]:pt-[105px] max-[767px]:pb-[72px]">
+        <picture class="pointer-events-none absolute inset-[8%_5.5%] z-[-1] h-[84%] w-[89%] max-[767px]:inset-0 max-[767px]:h-full max-[767px]:w-full" aria-hidden="true">
             <source media="(max-width: 640px)" srcset="Footer/Border%20Mobile.png">
-            <img src="Footer/Border.png" alt="">
+            <img src="Footer/Border.png" alt="" class="block h-full w-full object-fill">
         </picture>
-        <div class="footer-content">
-            <nav class="footer-nav" aria-label="Navigasi footer">
-                <a href="#home">HOME</a>
-                <a href="#about">TEMA</a>
-                <a href="#about">MATERI</a>
-                <a href="#about">ASIK</a>
+        <div class="grid w-[min(100%,1000px)] grid-cols-[minmax(180px,1fr)_minmax(0,2fr)] items-center gap-[clamp(2rem,7vw,6rem)] max-[767px]:grid-cols-1 max-[767px]:gap-6">
+            <nav class="ml-[clamp(6rem,14vw,12rem)] flex flex-col items-start gap-[0.45rem] max-[767px]:ml-0 max-[767px]:flex-row max-[767px]:flex-wrap max-[767px]:justify-center max-[767px]:gap-x-5 max-[767px]:gap-y-[0.4rem]" aria-label="Navigasi footer">
+                <a class="text-[clamp(1.1rem,2vw,1.5rem)] font-judul text-[#D59A62] no-underline hover:text-[#F6D8A5] focus-visible:text-[#F6D8A5]" href="#home">HOME</a>
+                <a class="text-[clamp(1.1rem,2vw,1.5rem)] font-judul text-[#D59A62] no-underline hover:text-[#F6D8A5] focus-visible:text-[#F6D8A5]" href="#about">TEMA</a>
+                <a class="text-[clamp(1.1rem,2vw,1.5rem)] font-judul text-[#D59A62] no-underline hover:text-[#F6D8A5] focus-visible:text-[#F6D8A5]" href="#about">MATERI</a>
+                <a class="text-[clamp(1.1rem,2vw,1.5rem)] font-judul text-[#D59A62] no-underline hover:text-[#F6D8A5] focus-visible:text-[#F6D8A5]" href="#about">ASIK</a>
             </nav>
-            <div class="footer-support">
-                <h2>Didukung Oleh</h2>
-                <div class="footer-logo-row">
-                    <img src="Footer/DPTSI.png" alt="DPTSI ITS" loading="lazy">
-                    <img src="Footer/Logo SI.png" alt="Sistem Informasi ITS" loading="lazy">
-                    <img src="Footer/ITS Advancing Humanity SVG.png" alt="ITS Advancing Humanity" loading="lazy">
-                    <img src="Footer/ITS KBB.png" alt="ITS Kampus Budaya dan Berkarakter" loading="lazy">
+            <div>
+                <h2 class="mb-4 mt-0 text-center font-teks text-[clamp(1.2rem,2vw,1.75rem)] text-[#F6D8A5]">Didukung Oleh</h2>
+                <div class="grid grid-cols-4 items-center gap-4 max-[767px]:gap-[0.8rem]">
+                    <img src="Footer/DPTSI.png" alt="DPTSI ITS" loading="lazy" class="block max-h-[44px] w-full object-contain max-[767px]:max-h-[34px]">
+                    <img src="Footer/Logo SI.png" alt="Sistem Informasi ITS" loading="lazy" class="block max-h-[44px] w-full object-contain max-[767px]:max-h-[34px]">
+                    <img src="Footer/ITS Advancing Humanity SVG.png" alt="ITS Advancing Humanity" loading="lazy" class="block max-h-[44px] w-full object-contain max-[767px]:max-h-[34px]">
+                    <img src="Footer/ITS KBB.png" alt="ITS Kampus Budaya dan Berkarakter" loading="lazy" class="block max-h-[44px] w-full object-contain max-[767px]:max-h-[34px]">
                 </div>
-                <div class="footer-logo-row">
-                    <img src="Footer/Logo Kabinet.png" alt="Kabinet Pilar Aksi" loading="lazy">
-                    <img src="Footer/SIMETRI.png" alt="SIMETRI" loading="lazy">
-                    <img src="Footer/diktisaintek.png" alt="Diktisaintek Berdampak" loading="lazy">
-                    <img src="Footer/HMSI.png" alt="Himpunan Mahasiswa Sistem Informasi" loading="lazy">
+                <div class="mx-auto mt-4 grid w-[84%] grid-cols-4 items-center gap-4 max-[767px]:mt-[0.8rem] max-[767px]:w-full max-[767px]:gap-[0.8rem]">
+                    <img src="Footer/Logo Kabinet.png" alt="Kabinet Pilar Aksi" loading="lazy" class="block max-h-[44px] w-full object-contain max-[767px]:max-h-[34px]">
+                    <img src="Footer/SIMETRI.png" alt="SIMETRI" loading="lazy" class="block max-h-[44px] w-full object-contain max-[767px]:max-h-[34px]">
+                    <img src="Footer/diktisaintek.png" alt="Diktisaintek Berdampak" loading="lazy" class="block max-h-[44px] w-full object-contain max-[767px]:max-h-[34px]">
+                    <img src="Footer/HMSI.png" alt="Himpunan Mahasiswa Sistem Informasi" loading="lazy" class="block max-h-[44px] w-full object-contain max-[767px]:max-h-[34px]">
                 </div>
-                <p class="footer-copyright">&copy; SIMETRI HMSI ITS</p>
+                <p class="mt-8 mb-0 text-center font-teks text-[clamp(0.9rem,1.5vw,1.2rem)] font-bold text-[#F6D8A5] max-[767px]:mt-[1.4rem]">&copy; SIMETRI HMSI ITS</p>
             </div>
         </div>
     </footer>
@@ -826,7 +188,7 @@
         const closeNavMenu = () => {
             navToggle.setAttribute('aria-expanded', 'false');
             navToggle.setAttribute('aria-label', 'Buka menu navigasi');
-            navLinks.classList.remove('is-open');
+            navLinks.dataset.open = 'false';
             hamburgerIcon.classList.remove('hidden');
             closeIcon.classList.add('hidden');
         };
@@ -840,7 +202,7 @@
 
             navToggle.setAttribute('aria-expanded', 'true');
             navToggle.setAttribute('aria-label', 'Tutup menu navigasi');
-            navLinks.classList.add('is-open');
+            navLinks.dataset.open = 'true';
             hamburgerIcon.classList.add('hidden');
             closeIcon.classList.remove('hidden');
         });
@@ -872,7 +234,7 @@
         for (let i = 0; i < docSlides.length; i++) {
             const dot = document.createElement('button');
             dot.type = 'button';
-            dot.className = 'doc-dot';
+            dot.className = 'h-[10px] w-[10px] cursor-pointer rounded-full border-0 bg-[#FFF3DB] p-0 opacity-40 transition-opacity duration-300';
             dot.setAttribute('aria-label', 'Slide ' + (i + 1));
             dot.addEventListener('click', () => goToDoc(i));
             docDots.appendChild(dot);
@@ -880,9 +242,10 @@
 
         function goToDoc(index) {
             docIndex = (index + docSlides.length) % docSlides.length;
-            docTrack.style.transform = 'translateX(-' + (docIndex * 100) + '%)';
+            docTrack.dataset.index = String(docIndex);
             Array.from(docDots.children).forEach((dot, i) => {
-                dot.classList.toggle('is-active', i === docIndex);
+                dot.classList.toggle('opacity-40', i !== docIndex);
+                dot.classList.toggle('opacity-100', i === docIndex);
             });
         }
 

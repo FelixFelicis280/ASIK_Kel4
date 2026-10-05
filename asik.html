@@ -122,9 +122,14 @@
         }
 
         .hero-title {
+            width: 100%;
+            color: #FFFFFF;
+            -webkit-text-stroke: 2px #7A3D21;
+            paint-order: stroke fill;
+            filter: drop-shadow(0 9px 0 #7A3D21);
             font-size: clamp(2.75rem, 13vw, 3.75rem);
             line-height: 1;
-            letter-spacing: 0.08em;
+            letter-spacing: 0;
             text-align: center;
         }
 
@@ -137,7 +142,8 @@
         }
 
         .hero-banner p {
-            font-size: clamp(0.7rem, 3.4vw, 0.95rem);
+            font-size: clamp(0.7rem, 3.7vw, 1rem);
+            font-weight: 400;
         }
 
         .about-section {
@@ -429,7 +435,13 @@
             }
 
             .hero-title {
-                font-size: clamp(4.5rem, 10.4vw, 9.375rem);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                max-width: 1260px;
+                height: 184px;
+                font-size: clamp(4.5rem, 12.7vw, 10rem);
             }
 
             .hero-banner {
@@ -439,7 +451,8 @@
             }
 
             .hero-banner p {
-                font-size: clamp(1rem, 1.94vw, 1.75rem);
+                font-size: 36px;
+                line-height: 36px;
             }
 
             .about-section {
@@ -513,7 +526,7 @@
             }
 
             .hero-banner p {
-                font-size: clamp(0.85rem, 3.6vw, 1rem);
+                font-size: clamp(0.85rem, 3.9vw, 1.1rem);
             }
 
             .about-section::after {
@@ -711,7 +724,7 @@
         >
 
         <div class="hero-content">
-            <h1 class="hero-title font-judul drop-shadow-[0_6px_0_rgba(76,28,14,0.35)]">
+            <h1 class="hero-title font-judul">
                 ASIK
             </h1>
 
@@ -721,7 +734,7 @@
                     alt=""
                     class="absolute inset-0 h-full w-full object-fill"
                 >
-                <p class="font-teks absolute inset-0 flex items-center justify-center px-4 sm:px-6 md:px-8 text-center leading-none text-[#4C1C0E]">
+                <p class="font-teks absolute inset-0 flex items-center justify-center px-4 sm:px-6 md:px-8 text-center leading-none text-[#7A3D21]">
                     Asistensi Simetri Kuy!
                 </p>
             </div>

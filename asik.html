@@ -36,31 +36,39 @@
                     <!-- Isi link halaman disini!!! (Tema & Materi: ganti "#" dengan halaman aslinya) -->
                     <li>
                         <a href="#home" class="max-[767px]:flex max-[767px]:min-h-12 max-[767px]:items-center max-[767px]:justify-center">
-                            <img src="NavBar/homeFont.png" class="h-[36px] w-[61px] max-[767px]:h-7 max-[767px]:w-auto max-[767px]:max-w-full" alt="Home page">
+                            <p class="font-[Wildbreath] text-[#C07E4E] text-4xl hover:text-[#F9DCB4]">Home</p>
                         </a>
                     </li>
                     <li>
                         <a href="#" class="max-[767px]:flex max-[767px]:min-h-12 max-[767px]:items-center max-[767px]:justify-center">
-                            <img src="NavBar/temaFont.png" class="h-[36px] w-[61px] max-[767px]:h-7 max-[767px]:w-auto max-[767px]:max-w-full" alt="Tema page">
+                            <p class="font-[Wildbreath] text-[#C07E4E] text-4xl hover:text-[#F9DCB4]">Tema</p>
                         </a>
                     </li>
                     <li>
                         <a href="#" class="max-[767px]:flex max-[767px]:min-h-12 max-[767px]:items-center max-[767px]:justify-center">
-                            <img src="NavBar/materiFont.png" class="h-[36px] w-[82px] max-[767px]:h-7 max-[767px]:w-auto max-[767px]:max-w-full" alt="Materi page">
+                            <p class="font-[Wildbreath] text-[#C07E4E] text-4xl hover:text-[#F9DCB4]">Materi</p>
                         </a>
                     </li>
                     <li>
                         <a href="#about" class="max-[767px]:flex max-[767px]:min-h-12 max-[767px]:items-center max-[767px]:justify-center">
-                            <img src="NavBar/asikFont.png" class="h-[36px] w-[62px] max-[767px]:h-7 max-[767px]:w-auto max-[767px]:max-w-full" alt="Asik page">
+                            <p class="font-[Wildbreath] text-4xl text-[#F9DCB4] underline decoration-2">Home</p>
                         </a>
                     </li>
                 </ul>
             </div>
             <div class="hidden shrink-0 items-center gap-[clamp(0.5rem,1.1vw,0.9375rem)] lg:flex">
-                <img src="NavBar/Exclude.png" alt="X Simetri" class="h-auto w-[clamp(1.75rem,3vw,2.6rem)]">
-                <img src="NavBar/Tiktok.png" alt="Tiktok Simetri" class="h-auto w-[clamp(1.75rem,3vw,2.6rem)]">
-                <img src="NavBar/ig-logo.png" alt="Instagram Simetri" class="h-auto w-[clamp(1.75rem,3vw,2.6rem)]">
-                <img src="NavBar/yt-logo.png" alt="Youtube Simetri" class="h-auto w-[clamp(1.75rem,3vw,2.6rem)]">
+                <a href="https://x.com/HMSI_ITS">
+                    <img src="NavBar/Exclude.png" alt="X Simetri" class="h-auto w-[clamp(1.75rem,3vw,2.6rem)] hover:opacity-85 transition-opacity">
+                </a>
+                <a href="https://www.tiktok.com/@hmsi_its">
+                    <img src="NavBar/Tiktok.png" alt="Tiktok Simetri" class="h-auto w-[clamp(1.75rem,3vw,2.6rem)] hover:opacity-85 transition-opacity">
+                </a>
+                <a href="https://www.instagram.com/simetri.hmsiits/">
+                    <img src="NavBar/ig-logo.png" alt="Instagram Simetri" class="h-auto w-[clamp(1.75rem,3vw,2.6rem)] hover:opacity-85 transition-opacity">
+                </a>
+                <a href="https://www.youtube.com/@layarHMSI/featured">
+                    <img src="NavBar/yt-logo.png" alt="Youtube Simetri" class="h-auto w-[clamp(1.75rem,3vw,2.6rem)] hover:opacity-85 transition-opacity">
+                </a>
             </div>
             <button id="HamburgerMenu" class="z-[60] flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-[#4C1C0E] max-[767px]:h-11 max-[767px]:w-11 lg:hidden" type="button" aria-label="Buka menu navigasi" aria-expanded="false" aria-controls="siteNavLinks">
                 <img id="iconHamburger" src="NavBar/hamburgerMenu.png" alt="Menu" class="w-[25.98px] h-[19.49px]">
@@ -70,25 +78,25 @@
     </header>
 
     <!-- Hero Section -->
-    <section id="home" class="relative h-[clamp(500px,155vw,640px)] overflow-hidden bg-[#085857] md:h-auto md:aspect-[1440/1407]">
+    <section id="home" class="relative overflow-hidden bg-[#085857] h-auto aspect-[1440/1407]">
         <img
             src="heroSection/bg-hero.svg"
             alt="Lanskap fantasi ASIK"
-            class="absolute inset-0 h-full w-full object-cover object-[center_22%] max-[767px]:inset-[-30%_0_auto] max-[767px]:h-[119%] max-[767px]:w-full max-[767px]:object-fill md:object-center"
+            class="absolute inset-0 h-full w-full object-cover object-[center_22%] min-[768px]:object-center"
         >
-
-        <div class="absolute left-1/2 top-[12%] z-10 flex h-auto w-[min(90vw,360px)] -translate-x-1/2 flex-col items-center justify-center max-[767px]:top-[13%] max-[767px]:w-[min(88vw,340px)] md:top-[16.06%] md:w-[87.5%] md:max-w-[1260px]">
-            <h1 class="w-full text-center text-[clamp(2.75rem,13vw,3.75rem)] font-judul font-normal leading-none tracking-[0] text-white [filter:drop-shadow(0_9px_0_#7A3D21)] [-webkit-text-stroke:2px_#7A3D21] [paint-order:stroke_fill] max-[767px]:text-[clamp(2.5rem,12vw,3.5rem)] md:flex md:h-[184px] md:max-w-[1260px] md:items-center md:justify-center md:text-[clamp(4.5rem,12.7vw,10rem)]">
+        
+        <div class="absolute left-1/2 top-[16.06%] z-10 flex h-auto w-[87.5%] max-w-[1260px] -translate-x-1/2 flex-col items-center justify-center">
+            <h1 class="w-full text-center text-[max(120px,12.7vw)] font-judul font-normal leading-none tracking-[0] text-white [filter:drop-shadow(0_9px_0_#7A3D21)] [-webkit-text-stroke:2px_#7A3D21] [paint-order:stroke_fill] flex items-center justify-center">
                 ASIK
             </h1>
-
-            <div class="relative mt-[0.4rem] aspect-[1947/250] w-full max-w-[300px] max-[767px]:mt-[0.2rem] max-[767px]:w-[82%] md:mt-2 md:w-[42%] md:max-w-[520px]">
+            <div class="relative mt-[0.4rem] aspect-[1947/250] w-[max(380px,40vw)] max-w-none">
                 <img
                     src="heroSection/paper-hero.png"
                     alt=""
-                    class="absolute inset-0 h-full w-full object-fill"
+                    class="absolute inset-0 h-full w-full object-fill mt-0.5"
                 >
-                <p class="font-teks absolute inset-0 flex items-center justify-center px-4 text-center text-[clamp(0.7rem,3.7vw,1rem)] font-normal leading-none text-[#7A3D21] max-[767px]:text-[clamp(0.85rem,3.9vw,1.1rem)] sm:px-6 md:px-8 md:text-[36px] md:leading-[36px]">
+        
+                <p class="font-teks absolute inset-0 flex items-center justify-center px-[3%] text-center text-[max(22px,2.2vw)] font-bold leading-none text-[#7A3D21]">
                     Asistensi Simetri Kuy!
                 </p>
             </div>
@@ -96,18 +104,16 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="relative h-[clamp(640px,170vw,760px)] overflow-hidden max-[767px]:after:absolute max-[767px]:after:z-[1] max-[767px]:after:content-[''] max-[767px]:after:pointer-events-none max-[767px]:after:inset-[54%_0_4%] max-[767px]:after:bg-[#0B5F5B] md:h-auto md:aspect-[1440/1568]">
+    <section id="about" class="relative h-[170vw] overflow-hidden md:h-auto md:aspect-[1440/1568]">
         <img src="About/bg-about.svg" alt="Background About" class="absolute inset-0 h-full w-full object-cover">
-        <div class="absolute left-1/2 top-[42.6vw] aspect-[625/409] w-[160%] -translate-x-1/2 overflow-hidden [container-type:inline-size] max-[767px]:top-[17%] max-[767px]:z-[2] max-[767px]:w-[120%] md:top-[25.87%] md:w-[75.2%] md:aspect-[1083/701]">
+        <div class="absolute left-1/2 top-[35vw] w-[160%] -translate-x-1/2 overflow-hidden [container-type:inline-size] md:top-[25.87%] md:w-[75.2%] aspect-[1083/701]">
             <img src="About/book.png" alt="Book" class="block h-full w-full object-cover">
-            <div class="absolute left-[22.5%] top-[15%] flex w-[55%] flex-col items-center text-center text-[#4C1C0E] max-[767px]:left-[7%] max-[767px]:top-[8%] max-[767px]:grid max-[767px]:w-[86%] max-[767px]:grid-cols-2 max-[767px]:items-start max-[767px]:gap-x-[10%] max-[767px]:text-left md:left-[14.82%] md:w-[70.37%]">
-                <div class="min-w-0">
-                    <h2 class="mb-[1.4cqw] font-judul text-[6.5cqw] font-normal leading-none text-[#FFF3DB] [text-shadow:0_2px_0_#9A542F,0_4px_0_#71391F,0_7.1px_0_rgba(0,0,0,0.25)] [-webkit-text-stroke:2.4px_#4C1C0E] [paint-order:stroke_fill] max-[767px]:mb-[0.55rem] max-[767px]:text-[clamp(1rem,4.2cqw,1.5rem)] max-[767px]:leading-[1.1] max-[767px]:[-webkit-text-stroke:1px_#4C1C0E] max-[767px]:[text-shadow:0_1px_0_#9A542F,0_2px_0_#71391F,0_4px_0_rgba(0,0,0,0.25)]">APA ITU ASIK</h2>
-                    <p class="m-0 font-teks text-[clamp(0.75rem,2cqw,1.2rem)] font-bold leading-[1.22] max-[767px]:text-[clamp(0.64rem,2.4cqw,0.85rem)]">ASIK (Asistensi SIMETRI Kuy) merupakan program pelatihan dan pembekalan bagi mahasiswa yang akan menjadi mentor dalam kegiatan SIMETRI. Kegiatan ini dirancang untuk memberikan pemahaman materi,</p>
-                </div>
-                <div class="min-w-0 w-[98%] max-[767px]:w-full">
-                    <p class="m-0 font-teks text-[clamp(0.75rem,2cqw,1.2rem)] font-bold leading-[1.22] max-[767px]:pt-[0.1rem] max-[767px]:text-[clamp(0.64rem,2.4cqw,0.85rem)]">metode pengajaran, serta simulasi mentoring agar mentor siap dalam mendampingi peserta. ASIK tidak hanya berfokus pada penguasaan materi, tetapi juga pada pengembangan soft skills seperti komunikasi, public speaking, teamwork, dan problem solving.</p>
-                </div>
+            <div class="@container absolute top-[15%] left-1/2 -translate-x-1/2 gap-3.5 items-center text-left md:text-center text-[#4C1C0E] w-[80vw] md:w-[60vw] columns-2 md:columns-1">
+                <h2 class="mb-[1.4cqw] font-judul text-[7vw] md:text-[6vw] font-normal leading-none text-[#FFF3DB] [text-shadow:0_2px_0_#9A542F,0_4px_0_#71391F,0_7.1px_0_rgba(0,0,0,0.25)] [-webkit-text-stroke:2.4px_#4C1C0E] [paint-order:stroke_fill]">APA ITU ASIK</h2>
+                <p class="m-0 font-teks text-[3.6vw] md:text-[1.8vw] w-full font-bold leading-[1.22]">
+                    ASIK (Asistensi SIMETRI Kuy) merupakan program pelatihan dan pembekalan bagi mahasiswa yang akan menjadi mentor dalam kegiatan SIMETRI. Kegiatan ini dirancang untuk memberikan pemahaman materi, metode pengajaran, 
+                    serta simulasi mentoring agar mentor siap dalam mendampingi peserta. ASIK tidak hanya berfokus pada penguasaan materi, tetapi juga pada pengembangan soft skills seperti komunikasi, public speaking, teamwork, dan problem solving.
+                </p>
             </div>
         </div>
     </section>

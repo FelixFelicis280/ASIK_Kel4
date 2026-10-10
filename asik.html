@@ -119,69 +119,159 @@
     </section>
 
     <!-- Dokumentasi Section -->
-    <section id="dokumentasi" class="relative min-h-screen w-full overflow-hidden bg-[#0B5F5B] px-3 py-16">
-        <div class="absolute inset-0 z-0 bg-[url('section2-dokumentasi/bg-desktop.png')] bg-cover bg-center"></div>
+    <section id="dokumentasi" class="relative h-auto w-full overflow-hidden bg-[#085857] pt-10">
+        <picture class="relative block w-full">
+            <source
+                media="(max-width: 767px)"
+                srcset="section2-dokumentasi/bg-dokumentasi-mobile.jpeg"
+            >
+            <img
+                src="section2-dokumentasi/bg-desktop.png"
+                alt="Background"
+                 class="block w-full h-auto"
+            >
+        </picture>
+            
+        <div class="absolute inset-0 top-[40vw] md:top-[18.5vw]">
+            <h2 class="relative z-[4] mx-auto mt-0 mb-10 w-fit text-center text-[10vw] md:text-[6vw] font-judul font-normal leading-none text-[#FFFFFF] [filter:drop-shadow(0_6px_0_#7A3D21)] [-webkit-text-stroke:2px_#4C1C0E] [paint-order:stroke_fill] md:[-webkit-text-stroke:4px_#4C1C0E]">DOKUMENTASI</h2>
+    
+            <div class="relative z-[2] mx-auto w-[85vw] md:w-[60vw]">
+                <img src="section2-dokumentasi/bg-fotodokumentasi.png" alt="Background" class="relative inset-0 z-[1] h-auto w-full">
 
-        <h2 class="relative z-[4] mx-auto mt-8 mb-10 w-fit text-center text-[clamp(2.25rem,8vw,4.5rem)] font-judul font-normal leading-none text-[#FFF3DB] [filter:drop-shadow(0_6px_0_#7A3D21)] [-webkit-text-stroke:2px_#4C1C0E] [paint-order:stroke_fill] md:[-webkit-text-stroke:4px_#4C1C0E]">DOKUMENTASI</h2>
-
-        <div class="relative z-[2] mx-auto w-full max-w-[min(390px,100%)] md:max-w-[700px]">
-            <img src="section2-dokumentasi/bg-fotodokumentasi.png" alt="Background" class="absolute inset-0 z-[1] h-full w-full object-fill" loading="lazy">
-            <div class="relative z-[2] overflow-hidden">
-                <div id="docTrack" data-index="0" class="flex transition-transform duration-500 ease-in-out data-[index='0']:translate-x-0 data-[index='1']:-translate-x-full data-[index='2']:-translate-x-[200%]">
-                    <!-- Card 1 -->
-                    <div class="flex shrink-0 basis-full flex-col items-center px-6 pt-4 pb-8">
-                        <img src="section2-dokumentasi/dokumentasi1.png" alt="Dokumentasi 1" class="block w-full">
+                <div class="absolute inset-x-0 top-0 h-full">
+                    <!-- Buttons -->
+                    <button id="docPrev" class="absolute top-1/2 -translate-y-1/2 left-[-1vw] z-[3] w-[10vw] md:w-[6vw] h-auto cursor-pointer z-5" type="button" aria-label="Sebelumnya">
+                        <img src="section2-dokumentasi/chevron-left.png" alt="Left Arrow" class="w-full">
+                    </button>
+                    <button id="docNext" class="absolute top-1/2 -translate-y-1/2 right-[-0.5vw] z-[3] w-[10vw] md:w-[6vw] h-auto cursor-pointer z-5" type="button" aria-label="Berikutnya">
+                        <img src="section2-dokumentasi/chevron-right.png" alt="Right Arrow" class="w-full">
+                    </button>
+                    <!-- Carousel -->
+                    <div class="relative z-[2] overflow-hidden">
+                        <div id="docTrack" data-index="0" class="relative flex transition-transform mt-[4vw] md:mt-[3vw] duration-500 ease-in-out">
+                            <!-- Card 1 -->
+                            <div class="flex shrink-0 basis-full flex-col items-center px-6 pt-4 pb-8">
+                                <img src="section2-dokumentasi/dokumentasi1.png" alt="Dokumentasi 1" class="block w-[70vw] md:w-[48vw]">
+                            </div>
+                            <!-- Card 2 (ganti src sesuai nama file aslimu) -->
+                            <div class="flex shrink-0 basis-full flex-col items-center px-6 pt-4 pb-8">
+                                <img src="section2-dokumentasi/dokumentasi2.png" alt="Dokumentasi 2" class="block w-[70vw] md:w-[48vw]">
+                            </div>
+                            <!-- Card 3 (ganti src sesuai nama file aslimu) -->
+                            <div class="flex shrink-0 basis-full flex-col items-center px-6 pt-4 pb-8">
+                                <img src="section2-dokumentasi/dokumentasi3.png" alt="Dokumentasi 3" class="block w-[70vw] md:w-[48vw]">
+                            </div>
+                        </div>
                     </div>
-                    <!-- Card 2 (ganti src sesuai nama file aslimu) -->
-                    <div class="flex shrink-0 basis-full flex-col items-center px-6 pt-4 pb-8">
-                        <img src="section2-dokumentasi/dokumentasi2.png" alt="Dokumentasi 2" class="block w-full">
-                    </div>
-                    <!-- Card 3 (ganti src sesuai nama file aslimu) -->
-                    <div class="flex shrink-0 basis-full flex-col items-center px-6 pt-4 pb-8">
-                        <img src="section2-dokumentasi/dokumentasi3.png" alt="Dokumentasi 3" class="block w-full">
-                    </div>
+                    <!-- Dots -->
+                    <div id="docDots" class="absolute flex items-center justify-center left-1/2 -translate-x-1/2 bottom-[3vw] z-[3] gap-[0.5vw]"></div>
                 </div>
             </div>
         </div>
+    </section>
 
-        <!-- Carousel Navigation -->
-        <div class="relative z-[3] mt-4 flex items-center justify-center gap-4">
-            <button id="docPrev" class="cursor-pointer border-0 bg-transparent text-2xl font-bold text-[#FFF3DB] opacity-100" type="button" aria-label="Sebelumnya">&#10094;</button>
-            <div id="docDots" class="flex items-center gap-2"></div>
-            <button id="docNext" class="cursor-pointer border-0 bg-transparent text-2xl font-bold text-[#FFF3DB] opacity-100" type="button" aria-label="Berikutnya">&#10095;</button>
+    <!-- 
+    ---------------------------------------------------------------------------------------------------------------------
+                                                    NOTICE
+    ---------------------------------------------------------------------------------------------------------------------
+    Carousel pengajar di grouping nya pake javascript secara otomatis.
+    Jadi SAAT INISIALISASI, kalo layar nya web maka dia 3 kartu per slide, kalo layarnya mobile, dia 1 kartu per slide
+    ---------------------------------------------------------------------------------------------------------------------
+    Jadi kalo mau jumlah kartunya sesuai, HARUS DI REFRESH
+    ---------------------------------------------------------------------------------------------------------------------
+    -->
+    <!-- Pengajar dan Mentor Section -->
+    <section id="pengajar" class="relative h-auto w-full overflow-hidden bg-[#085857] top-[-0.1px]">
+        <picture class="relative block w-full">
+            <source
+                media="(max-width: 767px)"
+                srcset="PengajarMentor/bg-section4-mobile.svg"
+            >
+            <img
+                src="PengajarMentor/bg-pengajar.png"
+                alt="Background"
+                 class="block w-full h-auto"
+            >
+        </picture>
+            
+        <div class="absolute inset-0 top-[30vw] md:top-[13vw]">
+            <h2 class="relative z-[4] mx-auto mb-[6vw] md:mb-[1vw] w-[90vw] md:w-fit text-center text-[12vw] md:text-[6vw] font-judul font-normal leading-none text-[#FFFFFF] [filter:drop-shadow(0_6px_0_#085857)] [-webkit-text-stroke:2px_#143D37] [paint-order:stroke_fill] md:[-webkit-text-stroke:4px_#143D37]">
+                PENGAJAR DAN MENTOR
+            </h2>
+    
+            <div class="relative z-[2] mx-auto w-[75vw] md:w-[80vw]">
+                <div class="relative h-[93vw] md:h-[40vw] overflow-hidden">
+                    <!-- Buttons -->
+                    <button id="pengPrev" class="absolute top-1/2 -translate-y-1/2 left-[-1vw] z-[3] w-[10vw] md:w-[6vw] h-auto cursor-pointer z-5" type="button" aria-label="Sebelumnya">
+                        <img src="PengajarMentor/cheveron-left-green.png" alt="Left Arrow" class="w-full">
+                    </button>
+                    <button id="pengNext" class="absolute top-1/2 -translate-y-1/2 right-[-0.5vw] z-[3] w-[10vw] md:w-[6vw] h-auto cursor-pointer z-5" type="button" aria-label="Berikutnya">
+                        <img src="PengajarMentor/cheveron-right-green.png" alt="Right Arrow" class="w-full">
+                    </button>
+                    <!-- Carousel -->
+                    <div class="relative z-[2]  overflow-hidden ">
+                        <div id="pengTrack" data-index="0" class="relative flex transition-transform duration-500 ease-in-out">
+                            <img src="PengajarMentor/Card.png" alt="Card 1" class="block w-[55vw] md:w-[20vw] drop-shadow-lg">
+                            <img src="PengajarMentor/Card.png" alt="Card 2" class="block w-[55vw] md:w-[20vw] drop-shadow-lg">
+                            <img src="PengajarMentor/Card.png" alt="Card 3" class="block w-[55vw] md:w-[20vw] drop-shadow-lg">
+                            <img src="PengajarMentor/Card.png" alt="Card 4" class="block w-[55vw] md:w-[20vw] drop-shadow-lg">
+                            <img src="PengajarMentor/Card.png" alt="Card 5" class="block w-[55vw] md:w-[20vw] drop-shadow-lg">
+                            <img src="PengajarMentor/Card.png" alt="Card 6" class="block w-[55vw] md:w-[20vw] drop-shadow-lg">
+                            <img src="PengajarMentor/Card.png" alt="Card 7" class="block w-[55vw] md:w-[20vw] drop-shadow-lg">
+                            <img src="PengajarMentor/Card.png" alt="Card 8" class="block w-[55vw] md:w-[20vw] drop-shadow-lg">
+                            <img src="PengajarMentor/Card.png" alt="Card 9" class="block w-[55vw] md:w-[20vw] drop-shadow-lg">
+                            <img src="PengajarMentor/Card.png" alt="Card 10" class="block w-[55vw] md:w-[20vw] drop-shadow-lg">
+                            <img src="PengajarMentor/Card.png" alt="Card 11" class="block w-[55vw] md:w-[20vw] drop-shadow-lg">
+                            <img src="PengajarMentor/Card.png" alt="Card 12" class="block w-[55vw] md:w-[20vw] drop-shadow-lg">
+                        </div>
+                    </div>
+                    <!-- Dots -->
+                    <div id="pengDots" class="absolute flex items-center justify-center left-1/2 -translate-x-1/2 bottom-[3vw] z-[3] gap-[0.5vw]"></div>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-[url('Footer/bg-footer.png')] relative isolate grid min-h-[560px] place-items-center overflow-hidden bg-[#4C1C0E] px-[8vw] pt-[120px] pb-20 text-[#F6D8A5] max-[767px]:min-h-[500px] max-[767px]:px-[14vw] max-[767px]:pt-[105px] max-[767px]:pb-[72px]">
-        <picture class="pointer-events-none absolute inset-[8%_5.5%] z-[-1] h-[84%] w-[89%] max-[767px]:inset-0 max-[767px]:h-full max-[767px]:w-full" aria-hidden="true">
-            <source media="(max-width: 640px)" srcset="Footer/frame-footer-mobile.png">
-            <img src="Footer/frame-footer.png" alt="" class="block h-full w-full object-fill">
-        </picture>
-        <div class="grid w-[min(100%,1000px)] grid-cols-[minmax(180px,1fr)_minmax(0,2fr)] items-center gap-[clamp(2rem,7vw,6rem)] max-[767px]:grid-cols-1 max-[767px]:gap-6">
-            <nav class="ml-[clamp(6rem,14vw,12rem)] flex flex-col items-start gap-[0.45rem] max-[767px]:ml-0 max-[767px]:flex-row max-[767px]:flex-wrap max-[767px]:justify-center max-[767px]:gap-x-5 max-[767px]:gap-y-[0.4rem]" aria-label="Navigasi footer">
-                <a class="text-[clamp(1.1rem,2vw,1.5rem)] font-judul text-[#D59A62] no-underline hover:text-[#F6D8A5] focus-visible:text-[#F6D8A5]" href="#home">HOME</a>
-                <a class="text-[clamp(1.1rem,2vw,1.5rem)] font-judul text-[#D59A62] no-underline hover:text-[#F6D8A5] focus-visible:text-[#F6D8A5]" href="#about">TEMA</a>
-                <a class="text-[clamp(1.1rem,2vw,1.5rem)] font-judul text-[#D59A62] no-underline hover:text-[#F6D8A5] focus-visible:text-[#F6D8A5]" href="#about">MATERI</a>
-                <a class="text-[clamp(1.1rem,2vw,1.5rem)] font-judul text-[#D59A62] no-underline hover:text-[#F6D8A5] focus-visible:text-[#F6D8A5]" href="#about">ASIK</a>
-            </nav>
-            <div>
-                <h2 class="mb-4 mt-0 text-center font-teks text-[clamp(1.2rem,2vw,1.75rem)] text-[#F6D8A5]">Didukung Oleh</h2>
-                <div class="grid grid-cols-4 items-center gap-4 max-[767px]:gap-[0.8rem]">
-                    <img src="Footer/DPTSI.png" alt="DPTSI ITS" loading="lazy" class="block max-h-[44px] w-full object-contain max-[767px]:max-h-[34px]">
-                    <img src="Footer/Logo SI.png" alt="Sistem Informasi ITS" loading="lazy" class="block max-h-[44px] w-full object-contain max-[767px]:max-h-[34px]">
-                    <img src="Footer/ITS Advancing Humanity SVG.png" alt="ITS Advancing Humanity" loading="lazy" class="block max-h-[44px] w-full object-contain max-[767px]:max-h-[34px]">
-                    <img src="Footer/ITS KBB.png" alt="ITS Kampus Budaya dan Berkarakter" loading="lazy" class="block max-h-[44px] w-full object-contain max-[767px]:max-h-[34px]">
+    <footer class="bg-[url('Footer/bg-footer.png')] relative isolate grid place-items-center overflow-hidden bg-[#4C1C0E] px-[8vw] py-[8vw] pb-20 text-[#F6D8A5] max-[767px]:min-h-[500px] max-[767px]:px-[14vw] max-[767px]:pt-[105px] max-[767px]:pb-[72px]">
+        <div class="relative">  
+            <picture class="relative block w-full">
+                <source
+                    media="(max-width: 767px)"
+                    srcset="Footer/frame-footer-mobile.png"
+                >
+                <img
+                    src="Footer/frame-footer.png"
+                    alt="Background"
+                >
+            </picture>
+            <div class="absolute inset-0">
+                <div class="grid w-[min(100%,1000px)] h-full grid-cols-[minmax(180px,1fr)_minmax(0,2fr)] gap-[clamp(2rem,7vw,6rem)] max-[767px]:grid-cols-1 max-[767px]:gap-6">
+                    <nav class="text-center md:ml-[clamp(6rem,14vw,12rem)] flex flex-col gap-[0.45rem] flex-wrap justify-center" aria-label="Navigasi footer">
+                        <a class="text-[4vw] md:text-[2vw] font-judul text-[#D59A62] no-underline hover:text-[#F6D8A5] focus-visible:text-[#F6D8A5]" href="#home">HOME</a>
+                        <a class="text-[4vw] md:text-[2vw] font-judul text-[#D59A62] no-underline hover:text-[#F6D8A5] focus-visible:text-[#F6D8A5]" href="#about">TEMA</a>
+                        <a class="text-[4vw] md:text-[2vw] font-judul text-[#D59A62] no-underline hover:text-[#F6D8A5] focus-visible:text-[#F6D8A5]" href="#about">MATERI</a>
+                        <a class="text-[4vw] md:text-[2vw] font-judul text-[#D59A62] no-underline hover:text-[#F6D8A5] focus-visible:text-[#F6D8A5]" href="#about">ASIK</a>
+                    </nav>
+                    <div class="mx-[5vw]">
+                        <h2 class="mb-4 mt-0 text-center font-teks text-[clamp(1.2rem,2vw,1.75rem)] text-[#F6D8A5]">Didukung Oleh</h2>
+                        <div class="grid grid-cols-4 items-center gap-4 max-[767px]:gap-[0.8rem]">
+                            <img src="Footer/DPTSI.png" alt="DPTSI ITS" loading="lazy" class="block max-h-[44px] w-full object-contain max-[767px]:max-h-[34px]">
+                            <img src="Footer/Logo SI.png" alt="Sistem Informasi ITS" loading="lazy" class="block max-h-[44px] w-full object-contain max-[767px]:max-h-[34px]">
+                            <img src="Footer/ITS Advancing Humanity SVG.png" alt="ITS Advancing Humanity" loading="lazy" class="block max-h-[44px] w-full object-contain max-[767px]:max-h-[34px]">
+                            <img src="Footer/ITS KBB.png" alt="ITS Kampus Budaya dan Berkarakter" loading="lazy" class="block max-h-[44px] w-full object-contain max-[767px]:max-h-[34px]">
+                        </div>
+                        <div class="mx-auto mt-4 grid w-[84%] grid-cols-4 items-center gap-4 max-[767px]:mt-[0.8rem] max-[767px]:w-full max-[767px]:gap-[0.8rem]">
+                            <img src="Footer/Logo Kabinet.png" alt="Kabinet Pilar Aksi" loading="lazy" class="block max-h-[44px] w-full object-contain max-[767px]:max-h-[34px]">
+                            <img src="Footer/SIMETRI.png" alt="SIMETRI" loading="lazy" class="block max-h-[44px] w-full object-contain max-[767px]:max-h-[34px]">
+                            <img src="Footer/diktisaintek.png" alt="Diktisaintek Berdampak" loading="lazy" class="block max-h-[44px] w-full object-contain max-[767px]:max-h-[34px]">
+                            <img src="Footer/HMSI.png" alt="Himpunan Mahasiswa Sistem Informasi" loading="lazy" class="block max-h-[44px] w-full object-contain max-[767px]:max-h-[34px]">
+                        </div>
+                        <p class="mt-8 mb-0 text-center font-teks text-[clamp(0.9rem,1.5vw,1.2rem)] font-bold text-[#F6D8A5] max-[767px]:mt-[1.4rem]">&copy; SIMETRI HMSI ITS</p>
+                    </div>
                 </div>
-                <div class="mx-auto mt-4 grid w-[84%] grid-cols-4 items-center gap-4 max-[767px]:mt-[0.8rem] max-[767px]:w-full max-[767px]:gap-[0.8rem]">
-                    <img src="Footer/Logo Kabinet.png" alt="Kabinet Pilar Aksi" loading="lazy" class="block max-h-[44px] w-full object-contain max-[767px]:max-h-[34px]">
-                    <img src="Footer/SIMETRI.png" alt="SIMETRI" loading="lazy" class="block max-h-[44px] w-full object-contain max-[767px]:max-h-[34px]">
-                    <img src="Footer/diktisaintek.png" alt="Diktisaintek Berdampak" loading="lazy" class="block max-h-[44px] w-full object-contain max-[767px]:max-h-[34px]">
-                    <img src="Footer/HMSI.png" alt="Himpunan Mahasiswa Sistem Informasi" loading="lazy" class="block max-h-[44px] w-full object-contain max-[767px]:max-h-[34px]">
-                </div>
-                <p class="mt-8 mb-0 text-center font-teks text-[clamp(0.9rem,1.5vw,1.2rem)] font-bold text-[#F6D8A5] max-[767px]:mt-[1.4rem]">&copy; SIMETRI HMSI ITS</p>
             </div>
-        </div>
+        </div>    
     </footer>
 
     <script>
@@ -240,24 +330,98 @@
         for (let i = 0; i < docSlides.length; i++) {
             const dot = document.createElement('button');
             dot.type = 'button';
-            dot.className = 'h-[10px] w-[10px] cursor-pointer rounded-full border-0 bg-[#FFF3DB] p-0 opacity-40 transition-opacity duration-300';
+            dot.classList.add("h-[1.3vw]", "w-[1.5vw]", "cursor-pointer", "rounded-full", "bg-[#C07E4E]", "duration-300");
             dot.setAttribute('aria-label', 'Slide ' + (i + 1));
             dot.addEventListener('click', () => goToDoc(i));
             docDots.appendChild(dot);
         }
 
+        function updateDocDots(){
+            [...docDots.children].forEach((dot, i) => {
+                if(i === docIndex){
+                    dot.classList.add("bg-[#7A3D21]", "w-[3vw]");
+                    dot.classList.remove("bg-[#C07E4E]", "w-[1.5vw]");
+                } else {
+                    dot.classList.add("bg-[#C07E4E]", "w-[1.5vw]");
+                    dot.classList.remove("bg-[#7A3D21]", "w-[3vw]");
+                }
+            })
+        }
+
         function goToDoc(index) {
             docIndex = (index + docSlides.length) % docSlides.length;
-            docTrack.dataset.index = String(docIndex);
-            Array.from(docDots.children).forEach((dot, i) => {
-                dot.classList.toggle('opacity-40', i !== docIndex);
-                dot.classList.toggle('opacity-100', i === docIndex);
-            });
+            docTrack.style.transform = `translateX(-${docIndex * 100}%)`;
+            updateDocDots();
         }
 
         document.getElementById('docPrev').addEventListener('click', () => goToDoc(docIndex - 1));
         document.getElementById('docNext').addEventListener('click', () => goToDoc(docIndex + 1));
         goToDoc(0);
+        
+        /* ===== Carousel Pengajar ===== */
+        const pengTrack = document.getElementById('pengTrack');
+        const pengDots = document.getElementById('pengDots');
+        
+        const pengCards = [...pengTrack.children];
+
+        const isMobile = window.innerWidth < 768;
+        const cardsPerSlide = isMobile ? 1 : 3;
+
+        for (let i = 0; i < pengCards.length; i += cardsPerSlide) {
+            const slide = document.createElement('div');
+
+            slide.className =
+                'flex shrink-0 basis-full items-center justify-center gap-[2vw] px-6 pt-4 pb-8';
+
+            pengCards.slice(i, i + cardsPerSlide).forEach((card, index) => {
+                
+                if (!isMobile) {
+                    if (index === 0) {
+                        card.classList.add('-rotate-[0.77deg]');
+                    } else if (index === 2) {
+                        card.classList.add('rotate-[1.8deg]');
+                    }
+                }
+
+                slide.appendChild(card);
+            });
+
+            pengTrack.appendChild(slide);
+        }
+
+        const pengSlides = pengTrack.children;
+        let pengIndex = 0;
+
+        for (let i = 0; i < pengSlides.length; i++) {
+            const dot = document.createElement('button');
+            dot.type = 'button';
+            dot.classList.add("h-[1.3vw]", "w-[1.5vw]", "cursor-pointer", "rounded-full", "bg-[#217269]", "duration-300");
+            dot.setAttribute('aria-label', 'Slide ' + (i + 1));
+            dot.addEventListener('click', () => goToPeng(i));
+            pengDots.appendChild(dot);
+        }
+
+        function updatePengDots(){
+            [...pengDots.children].forEach((dot, i) => {
+                if(i === pengIndex){
+                    dot.classList.add("bg-[#143D37]", "w-[3vw]");
+                    dot.classList.remove("bg-[#217269]", "w-[1.5vw]");
+                } else {
+                    dot.classList.add("bg-[#217269]", "w-[1.5vw]");
+                    dot.classList.remove("bg-[#143D37]", "w-[3vw]");
+                }
+            })
+        }
+
+        function goToPeng(index) {
+            pengIndex = (index + pengSlides.length) % pengSlides.length;
+            pengTrack.style.transform = `translateX(-${pengIndex * 100}%)`;
+            updatePengDots();
+        }
+
+        document.getElementById('pengPrev').addEventListener('click', () => goToPeng(pengIndex - 1));
+        document.getElementById('pengNext').addEventListener('click', () => goToPeng(pengIndex + 1));
+        goToPeng(0);
     </script>
 </body>
 </html>
